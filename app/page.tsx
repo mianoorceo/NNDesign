@@ -1,65 +1,76 @@
-import Image from "next/image";
+import Link from "next/link";
+import { navItems } from "@/content/nav";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <section className="py-12 pb-6 border-b border-rule">
+      <span className="inline-block text-xs text-thesis border border-thesis rounded-full mb-4 py-[.2rem] px-3 tracking-[.02em]">
+        خلاصه و ترجمه‌ی فارسی · کامل، ۲۷ فصل
+      </span>
+      <h1 className="text-[2rem] leading-[1.4] mt-[.2rem] mb-[.8rem] text-balance">
+        خلاصه‌ی فصل‌به‌فصلِ ساده و فشرده‌ی کتاب Neural Network Design
+      </h1>
+      <p className="text-ink-soft text-[1.05rem] max-w-[60ch]">
+        یک پروژه‌ی خلاصه‌نویسی و ترجمه‌ی فارسیِ کامل کتاب Neural Network Design
+        (نوشته‌ی Hagan، Demuth، Beale و De Jesús، ۲۷ فصل). هر فصل: مفهوم به
+        زبان ساده، فرمول‌های اصلی با نماد‌گذاری خودِ کتاب، یک مثال عددی
+        حل‌شده (برگرفته از خودِ کتاب)، و چند تمرین با پاسخ کامل برای تثبیت
+        مطلب — از مدل پایه‌ی نورون تا پنج مطالعه‌ی موردیِ واقعی.
+      </p>
+
+      <div className="grid grid-cols-3 gap-px bg-rule border border-rule rounded-[10px] overflow-hidden mt-7">
+        <div className="bg-bg-elev py-4 px-[1.1rem]">
+          <b className="block text-[1.3rem] tabular-nums">۲۷</b>
+          <span className="text-[.8rem] text-ink-soft">
+            فصل، از مقدمه تا مطالعات موردی
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="bg-bg-elev py-4 px-[1.1rem]">
+          <b className="block text-[1.3rem] tabular-nums">۱۰۱۲</b>
+          <span className="text-[.8rem] text-ink-soft">صفحه‌ی کتاب اصلی</span>
         </div>
-      </main>
-    </div>
+        <div className="bg-bg-elev py-4 px-[1.1rem]">
+          <b className="block text-[1.3rem] tabular-nums">۴۹</b>
+          <span className="text-[.8rem] text-ink-soft">تمرین با پاسخ کامل</span>
+        </div>
+      </div>
+
+      <div className="box intuition mt-7">
+        <span className="box-label">چطور بخونی</span>
+        فصل‌های ۱ تا ۳ زمینه و شهودند — می‌شود تندتر خواندشان. فصل‌های ۴ تا ۱۴
+        یک خط داستانیِ پیوسته‌اند (پرسپترون ← فضای برداری ← بهینه‌سازی ← LMS
+        ← بک‌پروپاگیشن)؛ بهتر است بدون پرش خوانده شوند. فصل‌های ۱۵ تا ۲۱
+        مسیر دیگری را دنبال می‌کنند (یادگیری تداعی/رقابتی تا هاپفیلد) و تا
+        حدی مستقل از خط اول‌اند. فصل‌های ۲۲ تا ۲۷ همه‌چیز را در قالب یک
+        چک‌لیست عملی و پنج مسئله‌ی واقعی جمع می‌کنند — خواندنشان بعد از
+        بقیه‌ی کتاب بیشترین حس‌وحال را می‌دهد.
+      </div>
+
+      <h2 className="text-[1.1rem] mt-10 mb-4">فهرست فصل‌ها</h2>
+      <ol className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none p-0">
+        {navItems.map((item) => (
+          <li key={item.slug}>
+            <Link
+              href={`/chapters/${item.slug}`}
+              className="flex items-center gap-3 no-underline border border-rule rounded-lg py-2 px-3 text-[.9rem] text-ink hover:border-accent"
+            >
+              <span className="font-math text-[.8rem] text-ink-faint ltr min-w-[1.6em]">
+                {item.num}
+              </span>
+              {item.label}
+            </Link>
+          </li>
+        ))}
+        <li>
+          <Link
+            href="/summary"
+            className="flex items-center gap-3 no-underline border border-thesis rounded-lg py-2 px-3 text-[.9rem] text-thesis"
+          >
+            <span className="font-math text-[.8rem] ltr min-w-[1.6em]">＋</span>
+            جمع‌بندی نهایی
+          </Link>
+        </li>
+      </ol>
+    </section>
   );
 }

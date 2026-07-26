@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #F6F3EA;
+  --bg-elev: #FFFFFF;
+  --ink: #221F19;
+  --ink-soft: #5B564C;
+  --ink-faint: #8B8578;
+  --rule: #E1D9C6;
+  --rule-strong: #CFC4A8;
+  --accent: #28497C;
+  --accent-ink: #1D3760;
+  --accent-soft: #DEE6F0;
+  --thesis: #9C4A22;
+  --thesis-soft: #F3E2D2;
+  --code-bg: #EEE8D9;
+  --shadow: 0 1px 2px rgba(40,32,10,.06), 0 8px 24px rgba(40,32,10,.05);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #15161B;
+    --bg-elev: #1C1E25;
+    --ink: #EAE6DC;
+    --ink-soft: #AFA99C;
+    --ink-faint: #726D62;
+    --rule: #2C2E36;
+    --rule-strong: #3A3D47;
+    --accent: #84A9E0;
+    --accent-ink: #B4CBF0;
+    --accent-soft: #232E42;
+    --thesis: #E2965E;
+    --thesis-soft: #3A2A1C;
+    --code-bg: #20222A;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elev: var(--bg-elev);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-accent: var(--accent);
+  --color-accent-ink: var(--accent-ink);
+  --color-accent-soft: var(--accent-soft);
+  --color-thesis: var(--thesis);
+  --color-thesis-soft: var(--thesis-soft);
+  --color-code: var(--code-bg);
+  --font-ui: 'Vazirmatn', 'IRANSansX', 'Tahoma', 'Segoe UI', system-ui, sans-serif;
+  --font-math: 'JetBrains Mono', 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  --shadow-card: var(--shadow);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-ink;
+    font-family: var(--font-ui);
+    direction: rtl;
+    line-height: 1.85;
+    font-size: 16.5px;
+  }
+  ::selection { @apply bg-accent-soft; }
+  a { @apply text-accent-ink; }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+}
+
+@layer components {
+  /* ---------- math primitives ---------- */
+  .eq, .eqn, .matrix, code, kbd { font-family: var(--font-math); }
+  .eq, .eqn { @apply inline-block; direction: ltr; unicode-bidi: isolate; }
+  .ltr { direction: ltr; unicode-bidi: isolate; }
+
+  .eqblock { @apply text-center overflow-x-auto text-[1.02rem]; margin: 1.1rem 0; padding: .6rem 0; direction: ltr; unicode-bidi: isolate; }
+  .eq { padding: 0 .1em; }
+  .frac { @apply inline-flex flex-col align-middle text-center leading-tight; margin: 0 .25em; }
+  .frac .num { padding: 0 .25em .1em; border-bottom: 1.3px solid currentColor; }
+  .frac .den { padding: .1em .25em 0; }
+  .matrix { @apply inline-grid relative align-middle; padding: .3em .75em; margin: 0 .4em; row-gap: .35em; column-gap: 1.1em; }
+  .matrix::before, .matrix::after { content: ""; @apply absolute top-px bottom-px w-[6px]; border: 1.6px solid currentColor; }
+  .matrix::before { left: -2px; border-inline-end: none; }
+  .matrix::after { right: -2px; border-inline-start: none; }
+  .matrix span { @apply text-center; }
+  code.inline { @apply bg-code rounded inline-block; padding: .1em .4em; font-size: .88em; direction: ltr; unicode-bidi: isolate; }
+
+  /* ---------- chapter content ---------- */
+  .chapter-body h3 { @apply text-[1.12rem] text-ink; margin: 1.9rem 0 .7rem; }
+  .chapter-body h3 .en { @apply font-medium text-ink-faint text-[.78rem] block; font-family: var(--font-math); direction: ltr; margin-top: .15rem; }
+  .chapter-body .lead-p { @apply text-ink-soft; }
+  .chapter-body p { margin: .8rem 0; }
+  .chapter-body ul.tight li, .chapter-body ol.tight li { margin: .35rem 0; }
+  .chapter-body ul, .chapter-body ol { padding-inline-start: 1.4rem; }
+  .chapter-body ul { list-style: disc; }
+  .chapter-body ol { list-style: decimal; }
+
+  .box { @apply border border-rule rounded-[10px] bg-bg-elev; padding: 1.1rem 1.3rem; margin: 1.3rem 0; }
+  .box.intuition { border-inline-start: 3px solid var(--accent); }
+  .box.intuition .box-label { @apply text-accent-ink; }
+  .box.note { @apply bg-thesis-soft; border-inline-start: 3px solid var(--thesis); }
+  .box.note .box-label { @apply text-thesis; }
+  .box.example { border-inline-start: 3px solid var(--ink-faint); }
+  .box-label { @apply text-xs uppercase font-bold block; letter-spacing: .06em; margin-bottom: .5rem; }
+
+  details.ex { @apply border border-rule rounded-[10px] bg-bg-elev; margin: .8rem 0; }
+  details.ex summary { @apply cursor-pointer text-[.95rem] flex gap-[.7rem] items-start; padding: .85rem 1.1rem; list-style: none; }
+  details.ex summary::-webkit-details-marker { display: none; }
+  details.ex summary::before { content: "+"; @apply text-accent font-bold shrink-0; font-family: var(--font-math); }
+  details.ex[open] summary::before { content: "\2013"; }
+  details.ex .ans { @apply text-ink-soft border-t border-dashed border-rule; padding: .8rem 1.1rem 1.1rem 1.1rem; margin-top: .2rem; }
+  .ex-block { margin: 1.4rem 0; }
+  .ex-block > .ex-heading { @apply text-[.8rem] uppercase text-ink-faint; letter-spacing: .06em; margin-bottom: .6rem; }
+
+  table.simple { @apply border-collapse w-full text-[.92rem]; margin: 1rem 0; }
+  table.simple th, table.simple td { @apply border border-rule text-center; padding: .5rem .7rem; }
+  table.simple th { @apply bg-code font-bold; }
+  .scrollx { @apply overflow-x-auto; }
 }
