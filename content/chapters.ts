@@ -107,6 +107,61 @@ export const chapters: Chapter[] = [
           <tr><td>Log-Sigmoid</td><td class="ltr">a = 1/(1+e⁻ⁿ)</td><td>پیوسته، بین ۰ و ۱، S-شکل</td><td>بک‌پروپاگیشن (فصل ۱۱)</td></tr>
         </table>
       </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.3rem 0;">
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Hard Limit</div>
+          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار پله‌ای تابع Hard Limit: صفر برای n منفی، یک برای n مثبت">
+            <line x1="10" y1="91" x2="150" y2="91" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <text x="146" y="103" font-size="10" fill="var(--ink-faint)">n</text>
+            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
+            <path d="M10,91 L80,91" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
+            <path d="M80,29 L150,29" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
+            <circle cx="80" cy="91" r="3.5" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:2" />
+            <circle cx="80" cy="29" r="3.5" style="fill:var(--accent)" />
+          </svg>
+          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1 if n≥0, else 0</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Symmetric Hard Limit</div>
+          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار پله‌ای تابع Symmetric Hard Limit: منفی‌یک برای n منفی، یک برای n مثبت">
+            <line x1="10" y1="60" x2="150" y2="60" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <text x="146" y="72" font-size="10" fill="var(--ink-faint)">n</text>
+            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
+            <path d="M10,98 L80,98" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
+            <path d="M80,22 L150,22" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
+            <circle cx="80" cy="98" r="3.5" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:2" />
+            <circle cx="80" cy="22" r="3.5" style="fill:var(--accent)" />
+          </svg>
+          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1 if n≥0, else −1</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Linear</div>
+          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار خط راست تابع Linear: a برابر n">
+            <line x1="10" y1="60" x2="150" y2="60" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <text x="146" y="72" font-size="10" fill="var(--ink-faint)">n</text>
+            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
+            <path d="M10,110 L150,10" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
+          </svg>
+          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a = n</div>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Log-Sigmoid</div>
+          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار S-شکل تابع Log-Sigmoid: بین صفر و یک">
+            <line x1="10" y1="98" x2="150" y2="98" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
+            <text x="146" y="110" font-size="10" fill="var(--ink-faint)">n</text>
+            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
+            <polyline points="10.0,98.3 18.8,98.1 27.5,97.6 36.2,96.7 45.0,94.8 53.8,91.1 62.5,84.4 71.2,73.8 80.0,60.0 88.8,46.2 97.5,35.6 106.2,28.9 115.0,25.2 123.8,23.3 132.5,22.4 141.2,21.9 150.0,21.7" style="stroke:var(--accent);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round" />
+          </svg>
+          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1/(1+e⁻ⁿ)</div>
+        </div>
+      </div>
+      <p style="color:var(--ink-faint);font-size:.85rem;margin-top:-.5rem;">محور افقی هر نمودار <span class="eq">n</span> (ورودی خالص) و محور عمودی <span class="eq">a</span> (خروجی) است؛ دایره‌ی توخالی یعنی آن نقطه در نمودار نیست (تابع در آنجا از سمت دیگر می‌پرد).</p>
+
       <p>تفاوت کلیدی این‌ها در «پیوستگی» است: دو تابع اول ناپیوسته‌اند (یک‌دفعه از یک مقدار به مقدار دیگر می‌پرند)، مناسب برای تصمیم‌های قطعیِ دودویی (بله/نه). دو تابع بعدی پیوسته‌اند و مشتق‌پذیر — همان ویژگی‌ای که در فصل‌های ۹ به بعد، برای الگوریتم‌های یادگیریِ مبتنی‌بر گرادیان حیاتی می‌شود (نمی‌توان از یک تابع پله‌ای مشتق گرفت).</p>
 
       <h3>معماری‌های شبکه <span class="en">Layer, Multi-layer, Recurrent</span></h3>
