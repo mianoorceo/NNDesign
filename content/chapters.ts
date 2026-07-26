@@ -212,6 +212,28 @@ export const chapters: Chapter[] = [
       <h3>محدودیت‌ها</h3>
       <p>اگر داده خطی-جداپذیر نباشد (مثال کلاسیک: تابع XOR)، این قاعده هرگز همگرا نمی‌شود و دائم نوسان می‌کند. این همان محدودیتی است که مینسکی و پیپرت در فصل ۱ به آن اشاره شد و باعث رکود یک‌دهه‌ای شد.</p>
 
+      <div class="box example">
+        <span class="box-label">مثال گام‌به‌گام — همین الان ببین چرا XOR هرگز همگرا نمی‌شود</span>
+        <p style="margin-top:0;">چهار الگوی XOR را با بایاس (به‌شکل یک ورودیِ همیشه-۱، طبق تمرینِ آخر همین فصل) در نظر بگیر:</p>
+        <div class="eqblock">p₁=(0,0)→t=0 &nbsp; p₂=(0,1)→t=1 &nbsp; p₃=(1,0)→t=1 &nbsp; p₄=(1,1)→t=0</div>
+        <p>با شروع از <span class="eq">w=[0,0]، b=0</span> و عبور پیاپی از این چهار الگو (هر «دور» = یک بار دیدنِ هر چهار تا)، وزن‌ها این‌طور عوض می‌شوند:</p>
+        <div class="scrollx">
+          <table class="simple">
+            <tr><th>دور</th><th>الگو</th><th>n</th><th>a</th><th>e</th><th>وزنِ جدید [w1,w2,b]</th></tr>
+            <tr><td>۱</td><td class="ltr">p₁</td><td class="ltr">0</td><td class="ltr">1</td><td class="ltr">−1</td><td class="ltr">[0, 0, −1]</td></tr>
+            <tr><td>۱</td><td class="ltr">p₂</td><td class="ltr">−1</td><td class="ltr">0</td><td class="ltr">+1</td><td class="ltr">[0, 1, 0]</td></tr>
+            <tr><td>۱</td><td class="ltr">p₃</td><td class="ltr">0</td><td class="ltr">1</td><td class="ltr">0</td><td class="ltr">[0, 1, 0] (بدون تغییر)</td></tr>
+            <tr><td>۱</td><td class="ltr">p₄</td><td class="ltr">1</td><td class="ltr">1</td><td class="ltr">−1</td><td class="ltr">[−1, 0, −1]</td></tr>
+            <tr><td>۲</td><td class="ltr">p₁</td><td class="ltr">−1</td><td class="ltr">0</td><td class="ltr">0</td><td class="ltr">[−1, 0, −1] (بدون تغییر)</td></tr>
+            <tr><td>۲</td><td class="ltr">p₂</td><td class="ltr">−1</td><td class="ltr">0</td><td class="ltr">+1</td><td class="ltr">[−1, 1, 0]</td></tr>
+            <tr><td>۲</td><td class="ltr">p₃</td><td class="ltr">−1</td><td class="ltr">0</td><td class="ltr">+1</td><td class="ltr">[0, 1, 1]</td></tr>
+            <tr><td>۲</td><td class="ltr">p₄</td><td class="ltr">2</td><td class="ltr">1</td><td class="ltr">−1</td><td class="ltr">[−1, 0, 0]</td></tr>
+            <tr><td>۳</td><td class="ltr">p₁</td><td class="ltr">0</td><td class="ltr">1</td><td class="ltr">−1</td><td class="ltr">[−1, 0, −1]</td></tr>
+          </table>
+        </div>
+        <p style="margin-bottom:0;">دقت کن: در دورِ سوم، وزن دقیقاً به <span class="eq">[−1,0,−1]</span> برگشت — همان چیزی که در پایانِ دورِ اول هم داشتیم! از اینجا به بعد، دورِ چهارم دقیقاً عینِ دورِ دوم تکرار می‌شود، دورِ پنجم عینِ دورِ سوم، و الی‌آخر — وزن‌ها برای همیشه در همین <b>چرخه‌ی ۴تایی</b> (<span class="eq">[−1,0,−1] → [−1,1,0] → [0,1,1] → [−1,0,0] → [−1,0,−1] → ⋯</span>) گیر می‌کنند و هیچ‌وقت به حالتی نمی‌رسند که هر چهار الگو را هم‌زمان درست دسته‌بندی کند. علتش ساده است: چون هیچ خطی نمی‌تواند XOR را جدا کند، همیشه دستِ‌کم یکی از چهار الگو اشتباه می‌ماند؛ اصلاحِ آن الگو، الگوی دیگری را خراب می‌کند — و این بازی هرگز تمام نمی‌شود.</p>
+      </div>
+
       <div class="box note">
         <span class="box-label">پیوند به فصل ۱۰</span>
         فرمول <code class="inline ltr">W(k+1) = W(k) + e(k)·p(k)ᵀ</code> که همین‌جا یاد گرفتی، در فصل ۱۰ با یک ضریب نرخ یادگیری صریح <code class="inline ltr">2α</code> تعمیم داده می‌شود: <code class="inline ltr">W(k+1) = W(k) + 2αe(k)p(k)ᵀ</code>. شکل قاعده یکی است؛ تفاوت اصلی این است که فصل ۱۰ این <code class="inline ltr">α</code> را از یک تحلیل ریاضیِ دقیق (فصل ۸ و ۹) به دست می‌آورد، نه فقط حدس.
