@@ -2013,6 +2013,95 @@ export const chapters: Chapter[] = [
       </div>
       <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem;">این کتاب‌نامه دقیقاً از پیوستِ الفِ کتابِ اصلی (Neural Network Design، ویرایشِ دوم) بازتولید شده است.</p>`,
   },
+  {
+    slug: "app-b",
+    num: `پ.ب`,
+    tag: `Appendix B · Notation · ۸ صفحه`,
+    title: `پیوست ب — فرهنگ نمادها`,
+    bodyHtml: `<p class="lead-p">این پیوست، مرجعِ کاملِ نمادگذاریِ کتاب است — همان چیزی که فصلِ ۲ گفت «اگر جایی نماد را فراموش کردی، به این‌جا برگرد». هر نمادِ این صفحه دقیقاً همان معنایی را دارد که در فصلِ مربوطه با آن آشنا شدی؛ این‌جا فقط همه را یک‌جا و فشرده کنارِ هم گذاشته‌ایم.</p>
+
+      <h3>قراردادهای پایه</h3>
+      <ul class="tight">
+        <li><b>اسکالر:</b> حرفِ کوچکِ کج — <code class="inline ltr">a, b, c</code></li>
+        <li><b>بردار:</b> حرفِ کوچکِ ضخیم (غیرکج) — <code class="inline ltr">a, b, c</code>؛ همیشه یعنی یک <b>ستون</b> از عدد. وقتی از یک سطرِ ماتریس به‌عنوانِ بردار استفاده می‌شود، آن را «بردارِ سطری» می‌نامیم.</li>
+        <li><b>ماتریس:</b> حرفِ بزرگِ ضخیم (غیرکج) — <code class="inline ltr">A, B, C</code></li>
+        <li><b>تبدیلِ خطیِ عمومی</b> (فصل‌های ۵ و ۶): <code class="inline ltr">x = Ay</code></li>
+      </ul>
+
+      <h3>نمادگذاریِ لایه‌ها (فصل‌های ۲ و ۱۱)</h3>
+      <div class="scrollx">
+        <table class="simple">
+          <tr><th>مفهوم</th><th>عنصرِ اسکالر</th><th>ماتریس / بردار</th></tr>
+          <tr><td>ماتریسِ وزن</td><td class="ltr">w<sub>i,j</sub><sup>k</sup>(t) &nbsp;(i=سطر/نورون، j=ستون/ورودی، k=لایه، t=زمان یا تکرار)</td><td class="ltr">W<sup>k</sup>(t) — ماتریس؛ w<sub>j</sub><sup>k</sup>(t) — ستون؛ <sub>i</sub>w<sup>k</sup>(t) — سطر</td></tr>
+          <tr><td>بایاس</td><td class="ltr">b<sub>i</sub><sup>k</sup>(t)</td><td class="ltr">b<sup>k</sup>(t)</td></tr>
+          <tr><td>بردارِ ورودی</td><td class="ltr">p<sub>i</sub>(t) — به‌عنوانِ عضوی از یک دنباله؛ p<sub>i</sub>q — به‌عنوانِ عضوی از یک مجموعه</td><td class="ltr">p(t) یا p<sub>q</sub></td></tr>
+          <tr><td>ورودیِ خالص</td><td class="ltr">n<sub>i</sub><sup>k</sup>(t) یا n<sub>i</sub><sup>k</sup>q</td><td class="ltr">n<sup>k</sup>(t) یا n<sup>k</sup>q</td></tr>
+          <tr><td>خروجی</td><td class="ltr">a<sub>i</sub><sup>k</sup>(t) یا a<sub>i</sub><sup>k</sup>q</td><td class="ltr">a<sup>k</sup>(t) یا a<sup>k</sup>q</td></tr>
+          <tr><td>تابعِ انتقال</td><td class="ltr">a<sub>i</sub><sup>k</sup> = f<sup>k</sup>(n<sub>i</sub><sup>k</sup>)</td><td class="ltr">a<sup>k</sup> = f<sup>k</sup>(n<sup>k</sup>)</td></tr>
+          <tr><td>هدف</td><td class="ltr">t<sub>i</sub>(t) یا t<sub>i</sub>q</td><td class="ltr">t(t) یا t<sub>q</sub></td></tr>
+          <tr><td>خطا</td><td class="ltr">e<sub>i</sub>(t)=t<sub>i</sub>(t)−a<sub>i</sub>(t)</td><td class="ltr">e(t) یا e<sub>q</sub></td></tr>
+        </table>
+      </div>
+      <p>مجموعه‌ی نمونه‌های آموزشی (ورودی/هدف) همیشه به این شکل نوشته می‌شود: <code class="inline ltr">{p₁,t₁}, {p₂,t₂}, …, {p_Q,t_Q}</code>.</p>
+
+      <h3>اندازه‌ها و بهینه‌سازی (فصل‌های ۸ و ۹)</h3>
+      <ul class="tight">
+        <li><code class="inline ltr">M</code> — تعدادِ لایه‌ها؛ <code class="inline ltr">S<sup>k</sup></code> — تعدادِ نورون‌های لایه‌ی k</li>
+        <li><code class="inline ltr">Q</code> — تعدادِ بردارهای ورودی (و هدف)؛ <code class="inline ltr">R</code> — بُعدِ بردارِ ورودی</li>
+        <li><code class="inline ltr">x</code> — بردارِ پارامتر (همه‌ی وزن‌ها و بایاس‌ها کنارِ هم)؛ <code class="inline ltr">x(k)</code> یا <code class="inline ltr">x<sub>k</sub></code> — مقدارش در تکرارِ k</li>
+        <li><code class="inline ltr">‖x‖</code> — نرم؛ <code class="inline ltr">F(x)</code> — شاخصِ عملکرد (تابعِ هزینه)</li>
+        <li><code class="inline ltr">∇F(x<sub>k</sub>) = g<sub>k</sub></code> — گرادیان؛ <code class="inline ltr">∇²F(x<sub>k</sub>) = A<sub>k</sub></code> — هسیان</li>
+        <li><code class="inline ltr">Δx<sub>k</sub> = x<sub>k+1</sub> − x<sub>k</sub></code> — تغییرِ پارامتر در یک گام</li>
+        <li><code class="inline ltr">λ<sub>i</sub></code> و <code class="inline ltr">z<sub>i</sub></code> — مقدارِ ویژه و بردارِ ویژه‌ی i‌ام</li>
+        <li><code class="inline ltr">F̂(x)</code> — شاخصِ عملکردِ تقریبی (فقط یک گامِ زمانی، برایِ شبکه‌های پویا)</li>
+      </ul>
+
+      <h3>بک‌پروپاگیشن و مشتق‌ها (فصل‌های ۱۱ و ۱۲)</h3>
+      <ul class="tight">
+        <li><code class="inline ltr">ḟ(n) = df(n)/dn</code> — مشتقِ اسکالرِ تابعِ انتقال</li>
+        <li><code class="inline ltr">Ḟ<sup>m</sup>(n<sup>m</sup>)</code> — ماتریسِ قطریِ مشتقاتِ تابعِ انتقالِ یک لایه (هر عنصرِ قطر، مشتقِ یک نورون)</li>
+        <li><code class="inline ltr">J(x)</code> — ماتریسِ ژاکوبین؛ <code class="inline ltr">H ≈ JᵀJ</code> — تقریبِ گاوس-نیوتنِ هسیان</li>
+        <li><code class="inline ltr">s<sup>m</sup> ≜ ∂F̂/∂n<sup>m</sup></code> — بردارِ حساسیتِ لایه‌ی m (اسکالر: <code class="inline ltr">s<sub>i</sub><sup>m</sup> ≜ ∂F̂/∂n<sub>i</sub><sup>m</sup></code>)</li>
+        <li><code class="inline ltr">s̃<sub>i,h</sub><sup>m</sup> ≜ ∂v<sub>h</sub>/∂n<sub>i</sub><sup>m</sup>(q) = ∂e<sub>k</sub>(q)/∂n<sub>i</sub><sup>m</sup>(q)</code> — حساسیتِ مارکوارت (برایِ الگوریتمِ لونبرگ-مارکوارتِ فصلِ ۱۲)؛ <code class="inline ltr">S̃<sub>q</sub><sup>m</sup></code> برایِ یک نمونه، <code class="inline ltr">S̃<sup>m</sup> = [S̃₁ᵐ S̃₂ᵐ … S̃_Qᵐ]</code> برایِ همه‌ی نمونه‌ها</li>
+        <li><code class="inline ltr">α</code> — نرخِ یادگیری؛ <code class="inline ltr">γ</code> — ضریبِ ممنتوم؛ <code class="inline ltr">ξ, ρ, ζ</code> — افزایش/کاهش/درصدِ تغییرِ نرخِ یادگیری؛ <code class="inline ltr">β<sub>k</sub></code> — پارامترِ تنظیمِ جهتِ گرادیانِ مزدوج؛ <code class="inline ltr">μ, θ</code> — پارامترهای الگوریتمِ مارکوارت</li>
+      </ul>
+
+      <h3>شبکه‌های پویا (فصل ۱۴)</h3>
+      <ul class="tight">
+        <li><code class="inline ltr">s<sub>k,i</sub><sup>u,m</sup>(t) ≜ ∂a<sub>k</sub><sup>u</sup>(t)/∂n<sub>i</sub><sup>m</sup>(t)</code> — حساسیتِ پویا (شاملِ اثرِ مستقیم و غیرمستقیمِ فصلِ ۱۴)</li>
+        <li><code class="inline ltr">IW<sup>m,l</sup>(d)</code> — وزنِ ورودی از ورودیِ l به لایه‌ی m با تأخیرِ d؛ <code class="inline ltr">LW<sup>m,l</sup>(d)</code> — وزنِ لایه از لایه‌ی l به لایه‌ی m با تأخیرِ d</li>
+        <li><code class="inline ltr">DL<sup>m,l</sup></code> — مجموعه‌ی تأخیرهای خطِ‌تأخیرِ بینِ لایه‌ی l و m؛ <code class="inline ltr">DI<sup>m,l</sup></code> — همان، بینِ ورودیِ l و لایه‌ی m</li>
+        <li><code class="inline ltr">I<sup>m</sup></code> — اندیسِ ورودی‌هایی که به لایه‌ی m وصل‌اند؛ <code class="inline ltr">L<sub>m</sub><sup>f</sup></code> — اندیسِ لایه‌هایی که مستقیم به جلو به لایه‌ی m وصل‌اند</li>
+        <li><b>لایه‌ی ورودی (X)</b>: هر لایه‌ای که وزنِ ورودی دارد یا در هرکدام از وزن‌هایش تأخیر هست. <b>لایه‌ی خروجی (U)</b>: خروجی‌اش با یک هدف مقایسه می‌شود، یا از طریقِ یک اتصالِ تأخیردار به یک لایه‌ی ورودی وصل است.</li>
+      </ul>
+
+      <h3>تعمیم‌پذیری (فصل ۱۳)</h3>
+      <ul class="tight">
+        <li><code class="inline ltr">α, β</code> — پارامترهای منظم‌سازی؛ <code class="inline ltr">ρ = α/β</code></li>
+        <li><code class="inline ltr">γ</code> — تعدادِ مؤثرِ پارامترها (همان عددی که بارها در مطالعه‌های موردی دیدیم)</li>
+        <li><code class="inline ltr">E<sub>D</sub></code> — مجموعِ مربعِ خطای داده؛ <code class="inline ltr">E<sub>W</sub></code> — مجموعِ مربعِ وزن‌ها</li>
+        <li><code class="inline ltr">x<sup>ML</sup></code> — وزنِ بیشینه‌ی درست‌نمایی؛ <code class="inline ltr">x<sup>MP</sup></code> — وزنِ محتمل‌ترین (بیزی)</li>
+      </ul>
+
+      <h3>نقشه‌ی ویژگی (فصل ۱۶)</h3>
+      <p><code class="inline ltr">d<sub>ij</sub></code> — فاصله‌ی بینِ نورونِ i و j در نقشه؛ <code class="inline ltr">N<sub>i</sub>(d) = {j | d<sub>ij</sub> ≤ d}</code> — همسایگیِ نورونِ i.</p>
+
+      <h3>گراسبرگ و ART (فصل‌های ۱۸ و ۱۹)</h3>
+      <ul class="tight">
+        <li><code class="inline ltr">W⁺</code> و <code class="inline ltr">W⁻</code> — ماتریس‌های اتصالِ مرکز-روشن/پیرامون-خاموش؛ <code class="inline ltr">b⁺</code> و <code class="inline ltr">b⁻</code> — بایاسِ تحریکی و بازدارنده</li>
+        <li><code class="inline ltr">ε</code> — ثابتِ زمانی؛ <code class="inline ltr">p̄<sub>i</sub> = p<sub>i</sub>/P</code> — شدتِ نسبی (که <code class="inline ltr">P=Σp<sub>j</sub></code>)</li>
+        <li><code class="inline ltr">W<sup>1:2</sup></code> و <code class="inline ltr">W<sup>2:1</sup></code> — ماتریس‌های وزنِ اینستار و اوت‌استار</li>
+        <li><code class="inline ltr">ρ</code> — پارامترِ هوشیاری (<code class="inline ltr">ρ = α/β</code> در زیرسیستمِ جهت‌یابی)؛ <code class="inline ltr">γ</code> — پارامترِ قاعده‌ی یادگیریِ ART1</li>
+      </ul>
+
+      <h3>پایداریِ لیاپانوف (فصل ۲۰)</h3>
+      <p><code class="inline ltr">V(a)</code> — تابعِ لیاپانوف؛ <code class="inline ltr">Z</code> — مجموعه‌ی نقاطی که <code class="inline ltr">dV/dt=0</code>؛ <code class="inline ltr">L</code> — بزرگ‌ترین مجموعه‌ی تغییرناپذیرِ داخلِ <code class="inline ltr">Z</code>؛ <code class="inline ltr">closure(L)</code> — بستارِ L؛ <code class="inline ltr">Ω = {a : V(a) ≤ γ}</code> — مجموعه‌ی کراندارِ سطحِ لیاپانوف.</p>
+
+      <h3>شبکه‌ی هاپفیلد (فصل ۲۱)</h3>
+      <p>پارامترهای مداری: <code class="inline ltr">T<sub>ij</sub>, C, R<sub>i</sub>, I<sub>i</sub></code>؛ <code class="inline ltr">ε</code> — ثابتِ زمانی؛ <code class="inline ltr">λ</code> — بهره‌ی تقویت‌کننده.</p>
+
+      <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem;">این فرهنگِ نمادها دقیقاً از پیوستِ بِ کتابِ اصلی بازتولید شده؛ اگر نمادی را در یک فصل فراموش کردی، همیشه می‌توانی به همین‌جا برگردی.</p>`,
+  },
 ];
 
 export function getChapter(slug: string): Chapter | undefined {
