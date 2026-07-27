@@ -202,6 +202,29 @@ export const chapters: Chapter[] = [
       <h3>پرسپترون <span class="en">Perceptron</span></h3>
       <p>راه‌حل اول: یک نورون (از همان نوعی که در فصل ۲ ساختیم) با تابع انتقال hard-limit. این نورون فضای سه‌بعدیِ ورودی‌ها را با یک <b>ابرصفحه</b> (در دو بعد: یک خط، در سه بعد: یک صفحه‌ی تخت) به دو ناحیه تقسیم می‌کند — همه‌ی سیب‌ها یک طرف، همه‌ی پرتقال‌ها طرف دیگر. نکته‌ی هندسیِ مهمی که باید از همین‌جا در ذهن بماند: این مرزِ تصمیم، همیشه بر بردار وزن <code class="inline ltr">w</code> عمود است. یعنی خودِ وزن‌ها، جهتِ «تفاوتِ سیب و پرتقال» را در فضای ورودی نشان می‌دهند. فصل ۴ نشان می‌دهد چطور می‌شود این وزن‌ها را با یک الگوریتم ساده و خودکار پیدا کرد.</p>
 
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 210 225" style="width:100%;max-width:320px;height:auto;" role="img" aria-label="نمودار دو کلاس نقطه در صفحه با یک خط مرز تصمیم و بردار وزن عمود بر آن">
+          <line x1="20" y1="20" x2="20" y2="195" style="stroke:var(--rule-strong);stroke-width:1.5" />
+          <line x1="20" y1="195" x2="195" y2="195" style="stroke:var(--rule-strong);stroke-width:1.5" />
+          <line x1="20" y1="42.7" x2="190" y2="212.7" style="stroke:var(--ink-faint);stroke-width:1.8;stroke-dasharray:5,4" />
+          <circle cx="48.3" cy="156.0" r="5" style="fill:var(--thesis)" />
+          <circle cx="71.0" cy="173.0" r="5" style="fill:var(--thesis)" />
+          <circle cx="54.0" cy="133.3" r="5" style="fill:var(--thesis)" />
+          <circle cx="139.0" cy="76.7" r="5" style="fill:var(--accent)" />
+          <circle cx="161.7" cy="99.3" r="5" style="fill:var(--accent)" />
+          <circle cx="127.7" cy="48.3" r="5" style="fill:var(--accent)" />
+          <line x1="93.7" y1="116.3" x2="121.7" y2="88.3" style="stroke:var(--ink);stroke-width:2.2" />
+          <polygon points="121.7,88.3 113.2,91.4 118.6,96.8" style="fill:var(--ink)" />
+          <text x="126" y="86" font-size="11" fill="var(--ink)">w</text>
+          <text x="145" y="205" font-size="10" fill="var(--ink-faint)">مرز تصمیم</text>
+          <circle cx="30" cy="20" r="4.5" style="fill:var(--thesis)" />
+          <text x="37" y="24" font-size="10" fill="var(--ink-soft)">پرتقال (t=0)</text>
+          <circle cx="30" cy="35" r="4.5" style="fill:var(--accent)" />
+          <text x="37" y="39" font-size="10" fill="var(--ink-soft)">سیب (t=1)</text>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">هر نقطه یک میوه است (دو ویژگیِ اندازه‌گیری‌شده روی دو محور)؛ خط چین همان مرزِ تصمیمِ پرسپترون است و پیکان، بردار وزنِ عمود بر آن را نشان می‌دهد.</p>
+      </div>
+
       <h3>شبکه‌ی همینگ <span class="en">Hamming Network</span></h3>
       <p>راه‌حل دوم، فلسفه‌ی کاملاً متفاوتی دارد: به‌جای رسم یک مرز، یک «الگوی نمونه» از سیب و یک «الگوی نمونه» از پرتقال را از قبل ذخیره می‌کند. وقتی ورودیِ جدیدی می‌آید، شباهتِ آن را با هر دو نمونه می‌سنجد (با ضرب داخلی — هرچه دو بردار «هم‌جهت‌تر» باشند، ضرب داخلی‌شان بزرگ‌تر است) و سپس یک لایه‌ی «رقابتی» که در آن نورون‌ها با هم رقابت می‌کنند، اجازه می‌دهد فقط نورونِ با بیشترین شباهت «برنده» شود و باقی خاموش شوند (این قانونِ «برنده همه‌چیز را می‌برد» نامیده می‌شود). ایده‌ی «ضرب داخلی = معیار شباهت» یکی از مهم‌ترین ایده‌های تکرارشونده‌ی کل کتاب است؛ فصل ۵ آن را به‌صورت کاملاً رسمی با نام inner product معرفی می‌کند.</p>
 
@@ -266,6 +289,24 @@ export const chapters: Chapter[] = [
 
       <h3>محدودیت‌ها</h3>
       <p>اگر داده خطی-جداپذیر نباشد (مثال کلاسیک: تابع XOR)، این قاعده هرگز همگرا نمی‌شود و دائم نوسان می‌کند. این همان محدودیتی است که مینسکی و پیپرت در فصل ۱ به آن اشاره شد و باعث رکود یک‌دهه‌ای شد.</p>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 210 210" style="width:100%;max-width:280px;height:auto;" role="img" aria-label="نمودار چهار نقطه‌ی XOR که هیچ خط راستی نمی‌تواند آن‌ها را به‌درستی جدا کند">
+          <line x1="20" y1="20" x2="20" y2="190" style="stroke:var(--rule-strong);stroke-width:1.5" />
+          <line x1="20" y1="190" x2="190" y2="190" style="stroke:var(--rule-strong);stroke-width:1.5" />
+          <line x1="20.0" y1="30.0" x2="180.0" y2="190.0" style="stroke:var(--ink-faint);stroke-width:1.8;stroke-dasharray:5,4" />
+          <circle cx="55.0" cy="155.0" r="6" style="fill:var(--thesis)" />
+          <text x="55" y="180" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(0,0)</text>
+          <circle cx="155.0" cy="55.0" r="6" style="fill:var(--thesis)" />
+          <text x="155" y="40" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(1,1)</text>
+          <circle cx="55.0" cy="55.0" r="6" style="fill:var(--accent)" />
+          <text x="55" y="40" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(0,1)</text>
+          <circle cx="155.0" cy="155.0" r="6" style="fill:var(--accent)" />
+          <text x="155" y="180" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(1,0)</text>
+          <text x="168" y="48" font-size="13" fill="var(--thesis)">✗</text>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">نارنجی = هدف ۰، آبی = هدف ۱. خط‌چین سه نقطه را درست جدا می‌کند اما چهارمی (۱,۱) همیشه اشتباه می‌ماند — هر خطِ دیگری را امتحان کنی، باز هم دقیقاً یکی از این چهار نقطه غلط می‌افتد.</p>
+      </div>
 
       <div class="box example">
         <span class="box-label">مثال گام‌به‌گام — همین الان ببین چرا XOR هرگز همگرا نمی‌شود</span>
@@ -345,6 +386,35 @@ export const chapters: Chapter[] = [
         <p style="margin-bottom:0;">حالا <span class="eq">{[1,1]ᵀ, [−0.5,0.5]ᵀ}</span> یک پایه‌ی متعامدند (بررسی: ضرب داخلی‌شان صفر است).</p>
       </div>
 
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.2rem 0;">
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">پیش از گرام-اشمیت (کج)</div>
+          <svg viewBox="0 0 120 115" style="width:100%;max-width:220px;height:auto;" role="img" aria-label="دو بردار پایه‌ی نامتعامد که زاویه‌ی تندی با هم دارند">
+            <circle cx="38" cy="105" r="2.5" style="fill:var(--ink-faint)" />
+            <line x1="38" y1="105" x2="80" y2="63" style="stroke:var(--accent);stroke-width:2.2" />
+            <polygon points="80,63 72.5,65.7 77.3,70.5" style="fill:var(--accent)" />
+            <text x="84" y="62" font-size="11" fill="var(--accent)">x₁</text>
+            <line x1="38" y1="105" x2="38" y2="63" style="stroke:var(--thesis);stroke-width:2.2" />
+            <polygon points="38,63 34.6,70.3 41.4,70.3" style="fill:var(--thesis)" />
+            <text x="20" y="60" font-size="11" fill="var(--thesis)">x₂</text>
+          </svg>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
+          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">پس از گرام-اشمیت (متعامد)</div>
+          <svg viewBox="0 0 120 115" style="width:100%;max-width:220px;height:auto;" role="img" aria-label="همان دو بردار پس از متعامدسازی، حالا دقیقاً عمود بر هم">
+            <circle cx="38" cy="105" r="2.5" style="fill:var(--ink-faint)" />
+            <line x1="38" y1="105" x2="80" y2="63" style="stroke:var(--accent);stroke-width:2.2" />
+            <polygon points="80,63 72.5,65.7 77.3,70.5" style="fill:var(--accent)" />
+            <text x="84" y="62" font-size="11" fill="var(--accent)">y₁</text>
+            <line x1="38" y1="105" x2="17" y2="84" style="stroke:var(--thesis);stroke-width:2.2" />
+            <polygon points="17,84 19.7,91.5 24.5,86.7" style="fill:var(--thesis)" />
+            <text x="2" y="80" font-size="11" fill="var(--thesis)">y₂</text>
+            <path d="M46,97 L54,89 L46,81" style="fill:none;stroke:var(--ink-faint);stroke-width:1.2" />
+          </svg>
+        </div>
+      </div>
+      <p style="font-size:.8rem;color:var(--ink-faint);margin-top:-.5rem;">همان مثال بالا، به‌شکل تصویری: <span class="eq">y₁</span> همان <span class="eq">x₁</span> است (بدون تغییر)؛ <span class="eq">y₂</span> با کم‌کردنِ «سایه‌ی» x₂ روی y₁ به‌دست آمده و دقیقاً ۹۰ درجه با y₁ زاویه دارد (نشانه‌ی کوچکِ گوشه در تصویر دوم همین زاویه‌ی راست را نشان می‌دهد).</p>
+
       <h3>بسط برداری و پایه‌ی متقابل <span class="en">Vector Expansion &amp; Reciprocal Basis</span></h3>
       <p>هر بردار <code class="inline ltr">x</code> را می‌شود برحسب یک پایه نوشت: <span class="eq">x = Σ xᵢvᵢ</span>. اگر پایه متعامد باشد، ضرایب راحت به‌دست می‌آیند (<span class="eq">xᵢ = ⟨x,vᵢ⟩ / ⟨vᵢ,vᵢ⟩</span>). اما اگر پایه متعامد نباشد (یک پایه‌ی کج و دلخواه)، این فرمول ساده دیگر درست جواب نمی‌دهد و باید از <b>پایه‌ی متقابل</b> استفاده کرد — پایه‌ی کمکی‌ای که از ماتریس گرام ساخته می‌شود و همپوشانیِ بردارهای غیرمتعامد را جبران می‌کند.</p>
 
@@ -393,6 +463,28 @@ export const chapters: Chapter[] = [
         <div class="eqblock">det(A−λI) = (−1−λ)(−2−λ) = 0 → λ₁ = −1, λ₂ = −2</div>
         <p>برای <span class="eq">λ₁=−1</span>: <span class="eq">z₁ = [1, 0]<sup>T</sup></span>؛ برای <span class="eq">λ₂=−2</span>: <span class="eq">z₂ = [1, −1]<sup>T</sup></span>. بررسی:</p>
         <div class="eqblock">Az₁ = [−1, 0]<sup>T</sup> = −1·[1,0]<sup>T</sup> ✓ <span style="margin-inline-start:1.6em">Az₂ = [−2, 2]<sup>T</sup> = −2·[1,−1]<sup>T</sup> ✓</span></div>
+      </div>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 190 190" style="width:100%;max-width:300px;height:auto;" role="img" aria-label="نمودار مقایسه‌ی بردار ویژه که فقط طولش عوض می‌شود با یک بردار معمولی که جهتش هم عوض می‌شود">
+          <line x1="20" y1="95" x2="170" y2="95" style="stroke:var(--rule-strong);stroke-width:1.2" />
+          <line x1="95" y1="20" x2="95" y2="170" style="stroke:var(--rule-strong);stroke-width:1.2" />
+
+          <line x1="95" y1="95" x2="125" y2="125" stroke="var(--ink-faint)" stroke-width="1.6" stroke-dasharray="4,3" />
+          <text x="129" y="130" font-size="10" fill="var(--ink-faint)">z₂ (قبل)</text>
+          <line x1="95" y1="95" x2="35" y2="35" stroke="var(--thesis)" stroke-width="2.4" />
+          <polygon points="35,35 37.7,42.5 42.5,37.7" style="fill:var(--thesis)" />
+          <text x="8" y="30" font-size="10" fill="var(--thesis)">Az₂ (همان راستا)</text>
+
+          <line x1="95" y1="95" x2="125" y2="65" stroke="var(--ink-faint)" stroke-width="1.6" stroke-dasharray="4,3" />
+          <text x="129" y="63" font-size="10" fill="var(--ink-faint)">p (قبل)</text>
+          <line x1="95" y1="95" x2="95" y2="155" stroke="var(--accent)" stroke-width="2.4" />
+          <polygon points="95,155 98.4,147.7 91.6,147.7" style="fill:var(--accent)" />
+          <text x="99" y="167" font-size="10" fill="var(--accent)">Ap (چرخیده!)</text>
+
+          <circle cx="95" cy="95" r="2.5" style="fill:var(--ink-faint)" />
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">بردار ویژه‌ی z₂ بعد از تبدیل (Az₂) دقیقاً روی همان خط باقی می‌ماند، فقط بلندتر می‌شود. اما بردارِ معمولیِ p=[1,1] بعد از همان تبدیل (Ap) کاملاً به سمت دیگری می‌چرخد — این دقیقاً تعریف بردار ویژه است.</p>
       </div>
 
       <h3>قطری‌سازی <span class="en">Diagonalization</span></h3>
@@ -503,7 +595,22 @@ export const chapters: Chapter[] = [
         <span class="box-label">مثال گام‌به‌گام (عین یک مسئله‌ی حل‌شده‌ی کتاب)</span>
         <p style="margin-top:0;">برای <span class="eq">F(x) = 5x₁² − 6x₁x₂ + 5x₂² + 4x₁ + 4x₂</span>، فرم استاندارد می‌دهد:</p>
         <div class="eqblock">A = <span class="matrix" style="grid-template-columns:repeat(2,auto);"><span>10</span><span>−6</span><span>−6</span><span>10</span></span></div>
-        <p>مقادیر و بردارهای ویژه‌ی این هسیان: <span class="eq">λ₁=4, z₁=[1,1]<sup>T</sup></span> و <span class="eq">λ₂=16, z₂=[1,−1]<sup>T</sup></span>. چون هر دو مقدار ویژه مثبت‌اند، A مثبت‌معین است و نقطه‌ی بهینه یک <b>کمینه‌ی مطلق</b> است؛ چون λ₂≫λ₁، منظره در جهت z₂ خیلی تندتر از جهت z₁ است (بیضی‌های کشیده).</p>
+        <p style="margin-bottom:0;">مقادیر و بردارهای ویژه‌ی این هسیان: <span class="eq">λ₁=4, z₁=[1,1]<sup>T</sup></span> و <span class="eq">λ₂=16, z₂=[1,−1]<sup>T</sup></span>. چون هر دو مقدار ویژه مثبت‌اند، A مثبت‌معین است و نقطه‌ی بهینه یک <b>کمینه‌ی مطلق</b> است؛ چون λ₂≫λ₁، منظره در جهت z₂ خیلی تندتر از جهت z₁ است (بیضی‌های کشیده).</p>
+      </div>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 210 210" style="width:100%;max-width:300px;height:auto;" role="img" aria-label="نمودار خطوط هم‌ترازِ بیضی‌شکلِ تابع F کشیده در جهت z1 و فشرده در جهت z2">
+          <ellipse cx="105" cy="105" rx="120.2" ry="60.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--rule-strong);stroke-width:1.3" />
+          <ellipse cx="105" cy="105" rx="80.1" ry="40.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.6" />
+          <ellipse cx="105" cy="105" rx="40.1" ry="20.0" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent);stroke-width:1.8" />
+          <line x1="105" y1="105" x2="161.6" y2="48.4" style="stroke:var(--ink);stroke-width:1.8" />
+          <line x1="105" y1="105" x2="136.8" y2="136.8" style="stroke:var(--ink);stroke-width:1.8" />
+          <text x="166" y="46" font-size="11" fill="var(--ink)">z₁</text>
+          <text x="140" y="148" font-size="11" fill="var(--ink)">z₂</text>
+          <circle cx="105" cy="105" r="3.5" style="fill:var(--thesis)" />
+          <text x="111" y="118" font-size="10" fill="var(--ink-soft)">نقطه‌ی کمینه</text>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">هر بیضی یک «تراز» (سطح خطای برابر) است. فاصله‌ی کوتاه‌تر در جهت z₂ یعنی خطا در آن جهت خیلی سریع‌تر بالا می‌رود (چون λ₂=16 بزرگ‌تر است)؛ در جهت z₁ (λ₁=4) منظره ملایم‌تر است.</p>
       </div>
 
       <div class="box note">
@@ -540,6 +647,20 @@ export const chapters: Chapter[] = [
       <p>برای تابع درجه‌دوم، این الگوریتم فقط وقتی همگرا می‌شود که:</p>
       <div class="eqblock">α &lt; <span class="frac"><span class="num">2</span><span class="den">λ<sub>max</sub></span></span></div>
       <p>که <code class="inline ltr">λ<sub>max</sub></code> بزرگ‌ترین مقدار ویژه‌ی هسیان است. با مثال فصل ۸ (<span class="eq">λ<sub>max</sub>=16</span>)، حداکثر α مجاز برابر <span class="eq">2/16 = 0.125</span> است — عبور از این مقدار یعنی واگرایی و نوسان بی‌کنترل وزن‌ها.</p>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 210 210" style="width:100%;max-width:300px;height:auto;" role="img" aria-label="مسیر زیگزاگی گرادیان کاهشی روی خطوط هم‌ترازِ بیضی‌شکل تا رسیدن به کمینه">
+          <ellipse cx="105" cy="105" rx="120.2" ry="60.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--rule-strong);stroke-width:1.3" />
+          <ellipse cx="105" cy="105" rx="80.1" ry="40.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.4" />
+          <ellipse cx="105" cy="105" rx="40.1" ry="20.0" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.4" />
+          <polyline points="20.0,20.0 128.8,128.8 98.3,98.3 106.9,106.9 104.5,104.5 105.1,105.1 105.0,105.0" style="fill:none;stroke:var(--ink);stroke-width:2" />
+          <circle cx="20.0" cy="20.0" r="4" style="fill:var(--ink)" />
+          <text x="26" y="18" font-size="10" fill="var(--ink-soft)">شروع</text>
+          <circle cx="105" cy="105" r="3.5" style="fill:var(--thesis)" />
+          <text x="111" y="118" font-size="10" fill="var(--ink-soft)">کمینه</text>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">با α=۰.۰۸ (کمتر از مرز پایداریِ ۰.۱۲۵) روی همان کاسه‌ی فصل ۸: هر گام عمود بر خط‌ترازِ همان نقطه برداشته می‌شود، اما چون بیضی‌ها کشیده‌اند، مسیر به‌جای رفتن مستقیم به سمت کمینه، پی‌درپی از این‌ور به آن‌ور می‌پرد (زیگزاگ) و کم‌کم همگرا می‌شود.</p>
+      </div>
 
       <h3>کمینه‌سازی در طول یک خط <span class="en">Minimizing Along a Line</span></h3>
       <p>به‌جای گام ثابت، می‌شود در هر تکرار، بهترین <code class="inline ltr">α</code> را دقیقاً همان لحظه محاسبه کرد (به‌جای حدس‌زدن آن از قبل) — این باعث همگرایی سریع‌تر می‌شود ولی هزینه‌ی محاسباتی هر گام را بالا می‌برد.</p>
@@ -640,6 +761,35 @@ export const chapters: Chapter[] = [
       <div class="eqblock">a<sup>m</sup> = f<sup>m</sup>(W<sup>m</sup>a<sup>m−1</sup> + b<sup>m</sup>)، &nbsp; m = 1,…,M</div>
       <p>با توابع انتقال غیرخطی در لایه‌های میانی (معمولاً sigmoid از فصل ۲)، این شبکه می‌تواند به‌عنوان یک <b>تقریب‌زننده‌ی عمومی</b> عمل کند — یک نتیجه‌ی ریاضیِ قوی که می‌گوید: با نورونِ کافی در لایه‌ی پنهان، چنین شبکه‌ای می‌تواند هر تابع پیوسته‌ای را تا هر دقتِ دلخواهی تقریب بزند. این دقیقاً همان چیزی است که پرسپترونِ تک‌لایه نمی‌توانست انجام دهد.</p>
 
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 260 160" style="width:100%;max-width:380px;height:auto;" role="img" aria-label="نمودار شمایی شبکه‌ی چندلایه با یک ورودی، دو نورون پنهان و یک نورون خروجی، همراه با جهت پیش‌رو و پس‌انتشار">
+          <line x1="35" y1="80" x2="120" y2="45" stroke="var(--rule-strong)" stroke-width="1.4" />
+          <line x1="35" y1="80" x2="120" y2="115" stroke="var(--rule-strong)" stroke-width="1.4" />
+          <line x1="120" y1="45" x2="220" y2="80" stroke="var(--rule-strong)" stroke-width="1.4" />
+          <line x1="120" y1="115" x2="220" y2="80" stroke="var(--rule-strong)" stroke-width="1.4" />
+          <circle cx="35" cy="80" r="13" style="fill:var(--bg-elev);stroke:var(--ink-soft);stroke-width:1.6" />
+          <text x="35" y="84" font-size="10" text-anchor="middle" fill="var(--ink)">p</text>
+          <circle cx="120" cy="45" r="13" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:1.8" />
+          <text x="120" y="49" font-size="9" text-anchor="middle" fill="var(--accent)">a¹₁</text>
+          <circle cx="120" cy="115" r="13" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:1.8" />
+          <text x="120" y="119" font-size="9" text-anchor="middle" fill="var(--accent)">a¹₂</text>
+          <circle cx="220" cy="80" r="13" style="fill:var(--bg-elev);stroke:var(--thesis);stroke-width:1.8" />
+          <text x="220" y="84" font-size="9" text-anchor="middle" fill="var(--thesis)">a²</text>
+          <text x="35" y="105" font-size="9" text-anchor="middle" fill="var(--ink-faint)">ورودی</text>
+          <text x="120" y="140" font-size="9" text-anchor="middle" fill="var(--ink-faint)">لایه‌ی پنهان</text>
+          <text x="220" y="105" font-size="9" text-anchor="middle" fill="var(--ink-faint)">خروجی</text>
+          <path d="M50,20 C120,0 170,0 205,20" style="fill:none;stroke:var(--accent-ink);stroke-width:1.6" marker-end="url(#fwd)" />
+          <text x="127" y="12" font-size="9" fill="var(--accent-ink)">پیش‌رو (a=f(Wp+b))</text>
+          <path d="M205,148 C170,132 120,132 50,148" style="fill:none;stroke:var(--thesis);stroke-width:1.6" marker-end="url(#bwd)" />
+          <text x="90" y="156" font-size="9" fill="var(--thesis)">پس‌انتشارِ حساسیت s</text>
+          <defs>
+            <marker id="fwd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--accent-ink)" /></marker>
+            <marker id="bwd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--thesis)" /></marker>
+          </defs>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">همان شبکه‌ی ۱-۲-۱ مثالِ بعدی: سیگنال در پاس رفت‌وبرگشتی اول رو به جلو حرکت می‌کند (خروجی محاسبه می‌شود)، سپس خطا از لایه‌ی آخر به سمت لایه‌های قبلی پس‌انتشار می‌شود تا وزن‌ها اصلاح شوند.</p>
+      </div>
+
       <h3>مشکل: خطا را فقط لایه‌ی آخر «می‌بیند»</h3>
       <p>حالا سؤال سخت: در فصل ۱۰، برای هر وزن به‌راحتی می‌دانستیم چقدر «مقصر» بوده، چون خطا مستقیماً از همان یک لایه بیرون می‌آمد. اما در یک شبکه‌ی چندلایه، فقط خروجیِ لایه‌ی آخر با هدف مقایسه می‌شود؛ لایه‌های پنهان هیچ‌وقت مستقیماً «هدف» نمی‌بینند. پس چطور بفهمیم وزن‌های یک لایه‌ی میانی را به کدام سمت اصلاح کنیم؟</p>
 
@@ -727,6 +877,25 @@ export const chapters: Chapter[] = [
 
       <h3>توقف زودهنگام <span class="en">Early Stopping</span></h3>
       <p>داده را به سه بخش تقسیم کن: آموزش، اعتبارسنجی، آزمون (معمولاً به نسبت تقریبی ۷۰-۱۵-۱۵٪). آموزش را روی بخش آموزش انجام بده، اما خطای اعتبارسنجی را هم زیر نظر بگیر؛ همین که خطای اعتبارسنجی شروع به افزایش کرد (در حالی که خطای آموزش هنوز کم می‌شود)، آموزش را متوقف کن.</p>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
+        <svg viewBox="0 0 220 155" style="width:100%;max-width:340px;height:auto;" role="img" aria-label="نمودار خطای آموزش که پیوسته کم می‌شود در برابر خطای اعتبارسنجی که ابتدا کم و سپس زیاد می‌شود، با نقطه‌ی توقف زودهنگام">
+          <line x1="20" y1="15" x2="20" y2="115" style="stroke:var(--rule-strong);stroke-width:1.3" />
+          <line x1="20" y1="115" x2="200" y2="115" style="stroke:var(--rule-strong);stroke-width:1.3" />
+          <text x="204" y="119" font-size="9" fill="var(--ink-faint)">دور آموزش</text>
+          <text x="12" y="14" font-size="9" fill="var(--ink-faint)">خطا</text>
+          <line x1="101" y1="15" x2="101" y2="115" stroke="var(--ink-faint)" stroke-width="1.3" stroke-dasharray="3,3" />
+          <text x="105" y="26" font-size="9" fill="var(--ink-faint)">نقطه‌ی توقفِ زودهنگام</text>
+          <polyline points="20.0,22.0 29.0,36.9 38.0,49.1 47.0,59.3 56.0,67.6 65.0,74.5 74.0,80.2 83.0,84.9 92.0,88.7 101.0,91.9 110.0,94.6 119.0,96.8 128.0,98.5 137.0,100.0 146.0,101.2 155.0,102.3 164.0,103.1 173.0,103.8 182.0,104.3 191.0,104.8 200.0,105.2" style="fill:none;stroke:var(--accent);stroke-width:2.2" />
+          <polyline points="20.0,41.0 29.0,53.4 38.0,63.0 47.0,70.4 56.0,75.9 65.0,80.0 74.0,82.8 83.0,84.6 92.0,85.7 101.0,86.0 110.0,85.7 119.0,85.0 128.0,83.9 137.0,82.3 146.0,80.5 155.0,78.4 164.0,76.0 173.0,73.4 182.0,70.6 191.0,67.7 200.0,64.5" style="fill:none;stroke:var(--thesis);stroke-width:2.2" />
+          <circle cx="101" cy="86.0" r="3.5" style="fill:var(--thesis)" />
+          <line x1="150" y1="14" x2="162" y2="14" stroke="var(--accent)" stroke-width="2.2" />
+          <text x="166" y="17" font-size="9" fill="var(--ink)">آموزش</text>
+          <line x1="150" y1="26" x2="162" y2="26" stroke="var(--thesis)" stroke-width="2.2" />
+          <text x="166" y="29" font-size="9" fill="var(--ink)">اعتبارسنجی</text>
+        </svg>
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">خطای آموزش (آبی) همیشه رو به کاهش است — حتی وقتی شبکه دارد نویز را حفظ می‌کند. خطای اعتبارسنجی (نارنجی) اما از یک‌جا به بعد دوباره بالا می‌رود؛ همان‌جا (نقطه‌ی نارنجی) دقیقاً لحظه‌ای است که باید آموزش را متوقف کرد.</p>
+      </div>
 
       <h3>منظم‌سازی <span class="en">Regularization</span></h3>
       <p>به‌جای توقف زودهنگام، می‌شود مستقیم در تابع هزینه یک جریمه برای وزن‌های بزرگ گذاشت:</p>
