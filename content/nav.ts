@@ -28,4 +28,7 @@ export const navItems: NavItem[] = [
   { slug: "25", num: "۲۵", label: "موردی: تشخیص الگو" },
   { slug: "26", num: "۲۶", label: "موردی: خوشه‌بندی" },
   { slug: "27", num: "۲۷", label: "موردی: پیش‌بینی" },
+  { slug: "app-a", num: "پ.الف", label: "پیوست الف: کتاب‌نامه" },
+  { slug: "app-b", num: "پ.ب", label: "پیوست ب: فرهنگ نمادها" },
+  { slug: "app-c", num: "پ.ج", label: "پیوست ج: نرم‌افزار" },
 ];
