@@ -200,29 +200,18 @@ export const chapters: Chapter[] = [
       <p>فرض کن یک ماشین داریم که با سه سنسور، یک میوه را اندازه می‌گیرد و هر اندازه‌گیری را به یک عدد ۱+ یا ۱− تبدیل می‌کند (مثلاً «صاف»=۱+ و «ناصاف»=۱−). این سه عدد کنار هم، یک بردار ورودی <code class="inline ltr">p</code> با سه مؤلفه می‌سازند. هدف: از روی این بردار سه‌تایی، تشخیص بدهیم میوه سیب است یا پرتقال. این دقیقاً همان قالب کلی‌ای است که در فصل ۲ دیدی (بردار ورودی → نورون → تصمیم)، فقط حالا با یک مسئله‌ی ملموس.</p>
 
       <h3>پرسپترون <span class="en">Perceptron</span></h3>
-      <p>راه‌حل اول: یک نورون (از همان نوعی که در فصل ۲ ساختیم) با تابع انتقال hard-limit. این نورون فضای سه‌بعدیِ ورودی‌ها را با یک <b>ابرصفحه</b> (در دو بعد: یک خط، در سه بعد: یک صفحه‌ی تخت) به دو ناحیه تقسیم می‌کند — همه‌ی سیب‌ها یک طرف، همه‌ی پرتقال‌ها طرف دیگر. نکته‌ی هندسیِ مهمی که باید از همین‌جا در ذهن بماند: این مرزِ تصمیم، همیشه بر بردار وزن <code class="inline ltr">w</code> عمود است. یعنی خودِ وزن‌ها، جهتِ «تفاوتِ سیب و پرتقال» را در فضای ورودی نشان می‌دهند. فصل ۴ نشان می‌دهد چطور می‌شود این وزن‌ها را با یک الگوریتم ساده و خودکار پیدا کرد.</p>
+      <p>راه‌حل اول: یک نورون (از همان نوعی که در فصل ۲ ساختیم) با تابع انتقال hard-limit. برای دو ورودی، این نورون دقیقاً همان چیزی است که در شکل زیر (مستقیم از خودِ کتاب) می‌بینی: دو ورودی <code class="inline ltr">p1, p2</code> با وزن‌های <code class="inline ltr">w1,1</code> و <code class="inline ltr">w1,2</code> جمع می‌شوند، بایاس <code class="inline ltr">b</code> اضافه می‌شود، و نتیجه از یک تابع hard-limit عبور می‌کند تا خروجی <code class="inline ltr">a</code> را بدهد.</p>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 210 225" style="width:100%;max-width:320px;height:auto;" role="img" aria-label="نمودار دو کلاس نقطه در صفحه با یک خط مرز تصمیم و بردار وزن عمود بر آن">
-          <line x1="20" y1="20" x2="20" y2="195" style="stroke:var(--rule-strong);stroke-width:1.5" />
-          <line x1="20" y1="195" x2="195" y2="195" style="stroke:var(--rule-strong);stroke-width:1.5" />
-          <line x1="20" y1="42.7" x2="190" y2="212.7" style="stroke:var(--ink-faint);stroke-width:1.8;stroke-dasharray:5,4" />
-          <circle cx="48.3" cy="156.0" r="5" style="fill:var(--thesis)" />
-          <circle cx="71.0" cy="173.0" r="5" style="fill:var(--thesis)" />
-          <circle cx="54.0" cy="133.3" r="5" style="fill:var(--thesis)" />
-          <circle cx="139.0" cy="76.7" r="5" style="fill:var(--accent)" />
-          <circle cx="161.7" cy="99.3" r="5" style="fill:var(--accent)" />
-          <circle cx="127.7" cy="48.3" r="5" style="fill:var(--accent)" />
-          <line x1="93.7" y1="116.3" x2="121.7" y2="88.3" style="stroke:var(--ink);stroke-width:2.2" />
-          <polygon points="121.7,88.3 113.2,91.4 118.6,96.8" style="fill:var(--ink)" />
-          <text x="126" y="86" font-size="11" fill="var(--ink)">w</text>
-          <text x="145" y="205" font-size="10" fill="var(--ink-faint)">مرز تصمیم</text>
-          <circle cx="30" cy="20" r="4.5" style="fill:var(--thesis)" />
-          <text x="37" y="24" font-size="10" fill="var(--ink-soft)">پرتقال (t=0)</text>
-          <circle cx="30" cy="35" r="4.5" style="fill:var(--accent)" />
-          <text x="37" y="39" font-size="10" fill="var(--ink-soft)">سیب (t=1)</text>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">هر نقطه یک میوه است (دو ویژگیِ اندازه‌گیری‌شده روی دو محور)؛ خط چین همان مرزِ تصمیمِ پرسپترون است و پیکان، بردار وزنِ عمود بر آن را نشان می‌دهد.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig3-2-two-input-perceptron.png" alt="شکل ۳-۲ کتاب: پرسپترون دو-ورودی/تک-نورون — دو ورودی p1 و p2 با وزن‌های w1,1 و w1,2 جمع می‌شوند، بایاس b اضافه می‌شود، و از تابع hard-limit عبور می‌کند تا خروجی a تولید شود" style="width:100%;max-width:380px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۳-۲ کتاب — پرسپترونِ دو-ورودی/تک-نورون: <code class="inline ltr">a = hardlims(Wp + b)</code></p>
+      </div>
+
+      <p>این نورون فضای سه‌بعدیِ ورودی‌ها را (در حالت کلی‌تر با سه ورودی) با یک <b>ابرصفحه</b> (در دو بعد: یک خط، در سه بعد: یک صفحه‌ی تخت) به دو ناحیه تقسیم می‌کند — همه‌ی سیب‌ها یک طرف، همه‌ی پرتقال‌ها طرف دیگر. نکته‌ی هندسیِ مهمی که باید از همین‌جا در ذهن بماند: این مرزِ تصمیم، همیشه بر بردار وزن <code class="inline ltr">w</code> عمود است. یعنی خودِ وزن‌ها، جهتِ «تفاوتِ سیب و پرتقال» را در فضای ورودی نشان می‌دهند. شکل زیر (باز هم مستقیم از کتاب) دقیقاً همین را برای حالتِ دو-بعدی نشان می‌دهد: خطِ آبی مرزِ تصمیم (جایی که <code class="inline ltr">n=0</code>) است، و بردار <code class="inline ltr">W</code> همیشه عمود بر آن است و به سمتِ ناحیه‌ی <code class="inline ltr">n&gt;0</code> اشاره می‌کند. فصل ۴ نشان می‌دهد چطور می‌شود این وزن‌ها را با یک الگوریتم ساده و خودکار پیدا کرد.</p>
+
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig3-3-decision-boundary.png" alt="شکل ۳-۳ کتاب: مرز تصمیمِ پرسپترون — خط آبی مرز تصمیم (n=0) است، ناحیه‌ی خاکستری n>0 و ناحیه‌ی سفید n<0 است، و بردار W عمود بر خط و رو به ناحیه‌ی n>0 است" style="width:100%;max-width:380px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۳-۳ کتاب — مرزِ تصمیمِ پرسپترون: خطِ آبی جایی‌ست که <code class="inline ltr">Wp+b=0</code>؛ بردار <code class="inline ltr">W</code> همیشه عمود بر این خط است.</p>
       </div>
 
       <h3>شبکه‌ی همینگ <span class="en">Hamming Network</span></h3>
@@ -290,22 +279,9 @@ export const chapters: Chapter[] = [
       <h3>محدودیت‌ها</h3>
       <p>اگر داده خطی-جداپذیر نباشد (مثال کلاسیک: تابع XOR)، این قاعده هرگز همگرا نمی‌شود و دائم نوسان می‌کند. این همان محدودیتی است که مینسکی و پیپرت در فصل ۱ به آن اشاره شد و باعث رکود یک‌دهه‌ای شد.</p>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 210 210" style="width:100%;max-width:280px;height:auto;" role="img" aria-label="نمودار چهار نقطه‌ی XOR که هیچ خط راستی نمی‌تواند آن‌ها را به‌درستی جدا کند">
-          <line x1="20" y1="20" x2="20" y2="190" style="stroke:var(--rule-strong);stroke-width:1.5" />
-          <line x1="20" y1="190" x2="190" y2="190" style="stroke:var(--rule-strong);stroke-width:1.5" />
-          <line x1="20.0" y1="30.0" x2="180.0" y2="190.0" style="stroke:var(--ink-faint);stroke-width:1.8;stroke-dasharray:5,4" />
-          <circle cx="55.0" cy="155.0" r="6" style="fill:var(--thesis)" />
-          <text x="55" y="180" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(0,0)</text>
-          <circle cx="155.0" cy="55.0" r="6" style="fill:var(--thesis)" />
-          <text x="155" y="40" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(1,1)</text>
-          <circle cx="55.0" cy="55.0" r="6" style="fill:var(--accent)" />
-          <text x="55" y="40" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(0,1)</text>
-          <circle cx="155.0" cy="155.0" r="6" style="fill:var(--accent)" />
-          <text x="155" y="180" font-size="10" text-anchor="middle" fill="var(--ink-soft)">(1,0)</text>
-          <text x="168" y="48" font-size="13" fill="var(--thesis)">✗</text>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">نارنجی = هدف ۰، آبی = هدف ۱. خط‌چین سه نقطه را درست جدا می‌کند اما چهارمی (۱,۱) همیشه اشتباه می‌ماند — هر خطِ دیگری را امتحان کنی، باز هم دقیقاً یکی از این چهار نقطه غلط می‌افتد.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig4-6-linearly-inseparable.png" alt="شکل ۴-۶ کتاب: سه مسئله‌ی خطی-غیرقابل‌جدایش — نمودار سمت چپ همان XOR است (دایره‌های پر و توخالی که هیچ خط راستی نمی‌تواند آن‌ها را جدا کند)، به‌همراه دو مثال دیگر از همین نوع مسئله" style="width:100%;max-width:520px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۴-۶ کتاب — سه مسئله‌ی خطی-غیرقابل‌جدایش. نمودار سمت چپ همان XOR است: هرچه خطی رسم کنی، همیشه یکی از دایره‌های پر و توخالی در طرفِ اشتباه می‌افتد. دو نمودار دیگر نشان می‌دهند این مشکل مخصوصِ XOR نیست — هر داده‌ای که «به‌هم‌تنیده» باشد همین سرنوشت را دارد.</p>
       </div>
 
       <div class="box example">
@@ -386,34 +362,10 @@ export const chapters: Chapter[] = [
         <p style="margin-bottom:0;">حالا <span class="eq">{[1,1]ᵀ, [−0.5,0.5]ᵀ}</span> یک پایه‌ی متعامدند (بررسی: ضرب داخلی‌شان صفر است).</p>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.2rem 0;">
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">پیش از گرام-اشمیت (کج)</div>
-          <svg viewBox="0 0 120 115" style="width:100%;max-width:220px;height:auto;" role="img" aria-label="دو بردار پایه‌ی نامتعامد که زاویه‌ی تندی با هم دارند">
-            <circle cx="38" cy="105" r="2.5" style="fill:var(--ink-faint)" />
-            <line x1="38" y1="105" x2="80" y2="63" style="stroke:var(--accent);stroke-width:2.2" />
-            <polygon points="80,63 72.5,65.7 77.3,70.5" style="fill:var(--accent)" />
-            <text x="84" y="62" font-size="11" fill="var(--accent)">x₁</text>
-            <line x1="38" y1="105" x2="38" y2="63" style="stroke:var(--thesis);stroke-width:2.2" />
-            <polygon points="38,63 34.6,70.3 41.4,70.3" style="fill:var(--thesis)" />
-            <text x="20" y="60" font-size="11" fill="var(--thesis)">x₂</text>
-          </svg>
-        </div>
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">پس از گرام-اشمیت (متعامد)</div>
-          <svg viewBox="0 0 120 115" style="width:100%;max-width:220px;height:auto;" role="img" aria-label="همان دو بردار پس از متعامدسازی، حالا دقیقاً عمود بر هم">
-            <circle cx="38" cy="105" r="2.5" style="fill:var(--ink-faint)" />
-            <line x1="38" y1="105" x2="80" y2="63" style="stroke:var(--accent);stroke-width:2.2" />
-            <polygon points="80,63 72.5,65.7 77.3,70.5" style="fill:var(--accent)" />
-            <text x="84" y="62" font-size="11" fill="var(--accent)">y₁</text>
-            <line x1="38" y1="105" x2="17" y2="84" style="stroke:var(--thesis);stroke-width:2.2" />
-            <polygon points="17,84 19.7,91.5 24.5,86.7" style="fill:var(--thesis)" />
-            <text x="2" y="80" font-size="11" fill="var(--thesis)">y₂</text>
-            <path d="M46,97 L54,89 L46,81" style="fill:none;stroke:var(--ink-faint);stroke-width:1.2" />
-          </svg>
-        </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig5-1-gram-schmidt.png" alt="شکل ۵-۱ کتاب: مثال متعامدسازی گرام-اشمیت — سمت چپ دو بردار غیرمتعامد y1,v1 و y2؛ سمت راست همان بردارها پس از متعامدسازی، با v2 عمود بر v1" style="width:100%;max-width:480px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۵-۱ کتاب — مثالِ گرام-اشمیت: سمت چپ، دو بردار پایه‌ی دلخواه (<span class="eq">y₁, y₂</span>)؛ سمت راست، همان فضا با پایه‌ی متعامدشده (<span class="eq">v₁=y₁</span> بدون تغییر، و <span class="eq">v₂</span> که با کم‌کردنِ تصویرِ <span class="eq">y₂</span> روی <span class="eq">v₁</span> به‌دست آمده و دقیقاً عمود بر آن است).</p>
       </div>
-      <p style="font-size:.8rem;color:var(--ink-faint);margin-top:-.5rem;">همان مثال بالا، به‌شکل تصویری: <span class="eq">y₁</span> همان <span class="eq">x₁</span> است (بدون تغییر)؛ <span class="eq">y₂</span> با کم‌کردنِ «سایه‌ی» x₂ روی y₁ به‌دست آمده و دقیقاً ۹۰ درجه با y₁ زاویه دارد (نشانه‌ی کوچکِ گوشه در تصویر دوم همین زاویه‌ی راست را نشان می‌دهد).</p>
 
       <h3>بسط برداری و پایه‌ی متقابل <span class="en">Vector Expansion &amp; Reciprocal Basis</span></h3>
       <p>هر بردار <code class="inline ltr">x</code> را می‌شود برحسب یک پایه نوشت: <span class="eq">x = Σ xᵢvᵢ</span>. اگر پایه متعامد باشد، ضرایب راحت به‌دست می‌آیند (<span class="eq">xᵢ = ⟨x,vᵢ⟩ / ⟨vᵢ,vᵢ⟩</span>). اما اگر پایه متعامد نباشد (یک پایه‌ی کج و دلخواه)، این فرمول ساده دیگر درست جواب نمی‌دهد و باید از <b>پایه‌ی متقابل</b> استفاده کرد — پایه‌ی کمکی‌ای که از ماتریس گرام ساخته می‌شود و همپوشانیِ بردارهای غیرمتعامد را جبران می‌کند.</p>
@@ -598,19 +550,9 @@ export const chapters: Chapter[] = [
         <p style="margin-bottom:0;">مقادیر و بردارهای ویژه‌ی این هسیان: <span class="eq">λ₁=4, z₁=[1,1]<sup>T</sup></span> و <span class="eq">λ₂=16, z₂=[1,−1]<sup>T</sup></span>. چون هر دو مقدار ویژه مثبت‌اند، A مثبت‌معین است و نقطه‌ی بهینه یک <b>کمینه‌ی مطلق</b> است؛ چون λ₂≫λ₁، منظره در جهت z₂ خیلی تندتر از جهت z₁ است (بیضی‌های کشیده).</p>
       </div>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 210 210" style="width:100%;max-width:300px;height:auto;" role="img" aria-label="نمودار خطوط هم‌ترازِ بیضی‌شکلِ تابع F کشیده در جهت z1 و فشرده در جهت z2">
-          <ellipse cx="105" cy="105" rx="120.2" ry="60.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--rule-strong);stroke-width:1.3" />
-          <ellipse cx="105" cy="105" rx="80.1" ry="40.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.6" />
-          <ellipse cx="105" cy="105" rx="40.1" ry="20.0" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent);stroke-width:1.8" />
-          <line x1="105" y1="105" x2="161.6" y2="48.4" style="stroke:var(--ink);stroke-width:1.8" />
-          <line x1="105" y1="105" x2="136.8" y2="136.8" style="stroke:var(--ink);stroke-width:1.8" />
-          <text x="166" y="46" font-size="11" fill="var(--ink)">z₁</text>
-          <text x="140" y="148" font-size="11" fill="var(--ink)">z₂</text>
-          <circle cx="105" cy="105" r="3.5" style="fill:var(--thesis)" />
-          <text x="111" y="118" font-size="10" fill="var(--ink-soft)">نقطه‌ی کمینه</text>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">هر بیضی یک «تراز» (سطح خطای برابر) است. فاصله‌ی کوتاه‌تر در جهت z₂ یعنی خطا در آن جهت خیلی سریع‌تر بالا می‌رود (چون λ₂=16 بزرگ‌تر است)؛ در جهت z₁ (λ₁=4) منظره ملایم‌تر است.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig8-7-elliptical-hollow.png" alt="شکل ۸-۷ کتاب: گودی بیضی‌شکل — سمت چپ نمودار هم‌ترازِ بیضی‌شکل با بردارهای ویژه رسم‌شده، سمت راست همان تابع به‌صورت سطح سه‌بعدی که شکل یک کاسه‌ی کشیده را نشان می‌دهد" style="width:100%;max-width:560px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۸-۷ کتاب — گودیِ بیضی‌شکل: نمودار سمت چپ خطوطِ هم‌تراز (contour) تابع F را نشان می‌دهد؛ پیکان‌های آبی جهتِ بردارهای ویژه‌اند. نمودار سمت راست همان تابع را به‌صورت سطحِ سه‌بعدی نشان می‌دهد — دقیقاً همان «کاسه»ای که در متن توصیف شد، کشیده در یک جهت و فشرده در جهتِ دیگر.</p>
       </div>
 
       <div class="box note">
@@ -648,18 +590,9 @@ export const chapters: Chapter[] = [
       <div class="eqblock">α &lt; <span class="frac"><span class="num">2</span><span class="den">λ<sub>max</sub></span></span></div>
       <p>که <code class="inline ltr">λ<sub>max</sub></code> بزرگ‌ترین مقدار ویژه‌ی هسیان است. با مثال فصل ۸ (<span class="eq">λ<sub>max</sub>=16</span>)، حداکثر α مجاز برابر <span class="eq">2/16 = 0.125</span> است — عبور از این مقدار یعنی واگرایی و نوسان بی‌کنترل وزن‌ها.</p>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 210 210" style="width:100%;max-width:300px;height:auto;" role="img" aria-label="مسیر زیگزاگی گرادیان کاهشی روی خطوط هم‌ترازِ بیضی‌شکل تا رسیدن به کمینه">
-          <ellipse cx="105" cy="105" rx="120.2" ry="60.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--rule-strong);stroke-width:1.3" />
-          <ellipse cx="105" cy="105" rx="80.1" ry="40.1" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.4" />
-          <ellipse cx="105" cy="105" rx="40.1" ry="20.0" transform="rotate(-45 105 105)" style="fill:none;stroke:var(--accent-soft);stroke-width:1.4" />
-          <polyline points="20.0,20.0 128.8,128.8 98.3,98.3 106.9,106.9 104.5,104.5 105.1,105.1 105.0,105.0" style="fill:none;stroke:var(--ink);stroke-width:2" />
-          <circle cx="20.0" cy="20.0" r="4" style="fill:var(--ink)" />
-          <text x="26" y="18" font-size="10" fill="var(--ink-soft)">شروع</text>
-          <circle cx="105" cy="105" r="3.5" style="fill:var(--thesis)" />
-          <text x="111" y="118" font-size="10" fill="var(--ink-soft)">کمینه</text>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">با α=۰.۰۸ (کمتر از مرز پایداریِ ۰.۱۲۵) روی همان کاسه‌ی فصل ۸: هر گام عمود بر خط‌ترازِ همان نقطه برداشته می‌شود، اما چون بیضی‌ها کشیده‌اند، مسیر به‌جای رفتن مستقیم به سمت کمینه، پی‌درپی از این‌ور به آن‌ور می‌پرد (زیگزاگ) و کم‌کم همگرا می‌شود.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig9-2-steepest-descent-oscillation.png" alt="شکل ۹-۲ کتاب: مسیر گرادیان کاهشی با نرخ یادگیری ۰.۰۳۵ روی یک تابع درجه‌دوم — مسیر به‌جای رفتن مستقیم به کمینه، نوسان می‌کند و به‌آرامی همگرا می‌شود" style="width:100%;max-width:340px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۹-۲ کتاب — مسیرِ گرادیانِ کاهشی با نرخ یادگیریِ <span class="eq">α=0.035</span>: برخلاف نرخِ کوچک‌تر (شکل ۹-۱ کتاب، که مسیری صاف و مستقیم می‌دهد)، اینجا مسیر پیش از رسیدن به کمینه نوسان می‌کند — دقیقاً همان زیگزاگی که وقتی بیضی‌های هم‌تراز کشیده‌اند و α به مرز پایداری نزدیک می‌شود رخ می‌دهد.</p>
       </div>
 
       <h3>کمینه‌سازی در طول یک خط <span class="en">Minimizing Along a Line</span></h3>
@@ -761,33 +694,9 @@ export const chapters: Chapter[] = [
       <div class="eqblock">a<sup>m</sup> = f<sup>m</sup>(W<sup>m</sup>a<sup>m−1</sup> + b<sup>m</sup>)، &nbsp; m = 1,…,M</div>
       <p>با توابع انتقال غیرخطی در لایه‌های میانی (معمولاً sigmoid از فصل ۲)، این شبکه می‌تواند به‌عنوان یک <b>تقریب‌زننده‌ی عمومی</b> عمل کند — یک نتیجه‌ی ریاضیِ قوی که می‌گوید: با نورونِ کافی در لایه‌ی پنهان، چنین شبکه‌ای می‌تواند هر تابع پیوسته‌ای را تا هر دقتِ دلخواهی تقریب بزند. این دقیقاً همان چیزی است که پرسپترونِ تک‌لایه نمی‌توانست انجام دهد.</p>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 260 160" style="width:100%;max-width:380px;height:auto;" role="img" aria-label="نمودار شمایی شبکه‌ی چندلایه با یک ورودی، دو نورون پنهان و یک نورون خروجی، همراه با جهت پیش‌رو و پس‌انتشار">
-          <line x1="35" y1="80" x2="120" y2="45" stroke="var(--rule-strong)" stroke-width="1.4" />
-          <line x1="35" y1="80" x2="120" y2="115" stroke="var(--rule-strong)" stroke-width="1.4" />
-          <line x1="120" y1="45" x2="220" y2="80" stroke="var(--rule-strong)" stroke-width="1.4" />
-          <line x1="120" y1="115" x2="220" y2="80" stroke="var(--rule-strong)" stroke-width="1.4" />
-          <circle cx="35" cy="80" r="13" style="fill:var(--bg-elev);stroke:var(--ink-soft);stroke-width:1.6" />
-          <text x="35" y="84" font-size="10" text-anchor="middle" fill="var(--ink)">p</text>
-          <circle cx="120" cy="45" r="13" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:1.8" />
-          <text x="120" y="49" font-size="9" text-anchor="middle" fill="var(--accent)">a¹₁</text>
-          <circle cx="120" cy="115" r="13" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:1.8" />
-          <text x="120" y="119" font-size="9" text-anchor="middle" fill="var(--accent)">a¹₂</text>
-          <circle cx="220" cy="80" r="13" style="fill:var(--bg-elev);stroke:var(--thesis);stroke-width:1.8" />
-          <text x="220" y="84" font-size="9" text-anchor="middle" fill="var(--thesis)">a²</text>
-          <text x="35" y="105" font-size="9" text-anchor="middle" fill="var(--ink-faint)">ورودی</text>
-          <text x="120" y="140" font-size="9" text-anchor="middle" fill="var(--ink-faint)">لایه‌ی پنهان</text>
-          <text x="220" y="105" font-size="9" text-anchor="middle" fill="var(--ink-faint)">خروجی</text>
-          <path d="M50,20 C120,0 170,0 205,20" style="fill:none;stroke:var(--accent-ink);stroke-width:1.6" marker-end="url(#fwd)" />
-          <text x="127" y="12" font-size="9" fill="var(--accent-ink)">پیش‌رو (a=f(Wp+b))</text>
-          <path d="M205,148 C170,132 120,132 50,148" style="fill:none;stroke:var(--thesis);stroke-width:1.6" marker-end="url(#bwd)" />
-          <text x="90" y="156" font-size="9" fill="var(--thesis)">پس‌انتشارِ حساسیت s</text>
-          <defs>
-            <marker id="fwd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--accent-ink)" /></marker>
-            <marker id="bwd" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--thesis)" /></marker>
-          </defs>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">همان شبکه‌ی ۱-۲-۱ مثالِ بعدی: سیگنال در پاس رفت‌وبرگشتی اول رو به جلو حرکت می‌کند (خروجی محاسبه می‌شود)، سپس خطا از لایه‌ی آخر به سمت لایه‌های قبلی پس‌انتشار می‌شود تا وزن‌ها اصلاح شوند.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig11-1-three-layer-network.png" alt="شکل ۱۱-۱ کتاب: شبکه‌ی سه‌لایه — ورودی p وارد لایه‌ی اول می‌شود، خروجی هر لایه (a¹) ورودی لایه‌ی بعدی است، تا لایه‌ی سوم خروجی نهایی a³ را بدهد؛ فرمول کامل ترکیبی در پایین شکل نوشته شده" style="width:100%;max-width:700px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۱۱-۱ کتاب — شبکه‌ی سه‌لایه: خروجیِ هر لایه، مستقیماً ورودیِ لایه‌ی بعدی می‌شود (<span class="eq">a¹=f¹(W¹p+b¹)</span>، سپس <span class="eq">a²=f²(W²a¹+b²)</span>، سپس <span class="eq">a³=f³(W³a²+b³)</span>). این «پاسِ رو به جلو» (forward pass) است؛ الگوریتمِ بک‌پروپاگیشن که در ادامه‌ی همین فصل می‌آید، دقیقاً همین ساختار را برعکس، از لایه‌ی سوم به سمتِ اول، برای محاسبه‌ی خطا طی می‌کند.</p>
       </div>
 
       <h3>مشکل: خطا را فقط لایه‌ی آخر «می‌بیند»</h3>
@@ -878,23 +787,10 @@ export const chapters: Chapter[] = [
       <h3>توقف زودهنگام <span class="en">Early Stopping</span></h3>
       <p>داده را به سه بخش تقسیم کن: آموزش، اعتبارسنجی، آزمون (معمولاً به نسبت تقریبی ۷۰-۱۵-۱۵٪). آموزش را روی بخش آموزش انجام بده، اما خطای اعتبارسنجی را هم زیر نظر بگیر؛ همین که خطای اعتبارسنجی شروع به افزایش کرد (در حالی که خطای آموزش هنوز کم می‌شود)، آموزش را متوقف کن.</p>
 
-      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:var(--bg-elev);margin:1.2rem 0;">
-        <svg viewBox="0 0 220 155" style="width:100%;max-width:340px;height:auto;" role="img" aria-label="نمودار خطای آموزش که پیوسته کم می‌شود در برابر خطای اعتبارسنجی که ابتدا کم و سپس زیاد می‌شود، با نقطه‌ی توقف زودهنگام">
-          <line x1="20" y1="15" x2="20" y2="115" style="stroke:var(--rule-strong);stroke-width:1.3" />
-          <line x1="20" y1="115" x2="200" y2="115" style="stroke:var(--rule-strong);stroke-width:1.3" />
-          <text x="204" y="119" font-size="9" fill="var(--ink-faint)">دور آموزش</text>
-          <text x="12" y="14" font-size="9" fill="var(--ink-faint)">خطا</text>
-          <line x1="101" y1="15" x2="101" y2="115" stroke="var(--ink-faint)" stroke-width="1.3" stroke-dasharray="3,3" />
-          <text x="105" y="26" font-size="9" fill="var(--ink-faint)">نقطه‌ی توقفِ زودهنگام</text>
-          <polyline points="20.0,22.0 29.0,36.9 38.0,49.1 47.0,59.3 56.0,67.6 65.0,74.5 74.0,80.2 83.0,84.9 92.0,88.7 101.0,91.9 110.0,94.6 119.0,96.8 128.0,98.5 137.0,100.0 146.0,101.2 155.0,102.3 164.0,103.1 173.0,103.8 182.0,104.3 191.0,104.8 200.0,105.2" style="fill:none;stroke:var(--accent);stroke-width:2.2" />
-          <polyline points="20.0,41.0 29.0,53.4 38.0,63.0 47.0,70.4 56.0,75.9 65.0,80.0 74.0,82.8 83.0,84.6 92.0,85.7 101.0,86.0 110.0,85.7 119.0,85.0 128.0,83.9 137.0,82.3 146.0,80.5 155.0,78.4 164.0,76.0 173.0,73.4 182.0,70.6 191.0,67.7 200.0,64.5" style="fill:none;stroke:var(--thesis);stroke-width:2.2" />
-          <circle cx="101" cy="86.0" r="3.5" style="fill:var(--thesis)" />
-          <line x1="150" y1="14" x2="162" y2="14" stroke="var(--accent)" stroke-width="2.2" />
-          <text x="166" y="17" font-size="9" fill="var(--ink)">آموزش</text>
-          <line x1="150" y1="26" x2="162" y2="26" stroke="var(--thesis)" stroke-width="2.2" />
-          <text x="166" y="29" font-size="9" fill="var(--ink)">اعتبارسنجی</text>
-        </svg>
-        <p style="font-size:.8rem;color:var(--ink-faint);margin:.6rem 0 0;">خطای آموزش (آبی) همیشه رو به کاهش است — حتی وقتی شبکه دارد نویز را حفظ می‌کند. خطای اعتبارسنجی (نارنجی) اما از یک‌جا به بعد دوباره بالا می‌رود؛ همان‌جا (نقطه‌ی نارنجی) دقیقاً لحظه‌ای است که باید آموزش را متوقف کرد.</p>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1.2rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig13-4-early-stopping.png" alt="شکل ۱۳-۴ کتاب: توقف زودهنگام — خطای اعتبارسنجی (آبی) و خطای آموزش (سیاه) در برابر شماره‌ی تکرار روی مقیاس لگاریتمی؛ نقطه‌ی a کمینه‌ی خطای اعتبارسنجی و بهترین لحظه‌ی توقف است، نقطه‌ی b نمونه‌ای از ادامه‌ی بیش از حد آموزش و بیش‌برازش است" style="width:100%;max-width:420px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.8rem 0 0;">شکل ۱۳-۴ کتاب — توقفِ زودهنگام: خطای آموزش (Training) پیوسته کم می‌شود، اما خطای اعتبارسنجی (Validation) از نقطه‌ی <span class="eq">a</span> به بعد دوباره بالا می‌رود. اگر آموزش را تا نقطه‌ی <span class="eq">b</span> ادامه بدهیم، شبکه بیش‌برازش می‌کند؛ وزن‌های نقطه‌ی <span class="eq">a</span> بهترین انتخاب‌اند.</p>
+      </div>
       </div>
 
       <h3>منظم‌سازی <span class="en">Regularization</span></h3>
