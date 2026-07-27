@@ -253,6 +253,67 @@ export const chapters: Chapter[] = [
         نماد <code class="inline ltr">W</code> برای ماتریس وزن، در سراسر کتاب بدون استثنا همین معنی را دارد: هر سطرِ آن، بردار وزنِ یک نورون است. همین یک قرارداد ساده باعث می‌شود فرمول‌های فصل‌های بعدی (از پرسپترون تا بک‌پروپاگیشن) همه با یک زبان مشترک نوشته شوند. هر وقت گم شدی، به همین یک جمله برگرد: «سطر = نورون، ستون = ورودی».
       </div>
 
+      <h3>دو بلوکِ پایه برای شبکه‌های بازگشتی: تأخیر و انتگرال‌گیر</h3>
+      <p>پیش از رفتن سراغِ خودِ شبکه‌ی بازگشتی، دو قطعه‌ی ساختمانی لازم است. <b>بلوکِ تأخیر (delay)</b>، برای شبکه‌های با زمانِ گسسته (مثل شبکه‌ی هاپفیلد در فصل ۳ و ۲۱)، فقط ورودی‌اش را یک گامِ زمانی به تعویق می‌اندازد:</p>
+      <div class="eqblock">a(t) = u(t − 1)</div>
+      <p>یعنی خروجیِ این لحظه، همان ورودیِ لحظه‌ی قبل است — و برای شروع، به یک «شرطِ اولیه» <code class="inline ltr">a(0)</code> نیاز دارد. <b>بلوکِ انتگرال‌گیر (integrator)</b>، نسخه‌ی زمانِ پیوسته‌ی همین ایده است (برای شبکه‌های فصل‌های ۱۸ تا ۲۱):</p>
+      <div class="eqblock">a(t) = ∫₀ᵗ u(τ)dτ + a(0)</div>
+      <p>یک <b>شبکه‌ی بازگشتی (recurrent network)</b> دقیقاً همان شبکه‌ای است که خروجیِ لایه، از طریقِ یکی از این دو بلوک، دوباره به ورودیِ همان لایه برمی‌گردد. بردارِ <code class="inline ltr">p</code> در این حالت دیگر «ورودیِ هر لحظه» نیست، بلکه فقط <b>شرطِ اولیه</b> است: <code class="inline ltr">a(0) = p</code>. سپس خروجی‌های بعدی، تنها از رویِ خروجیِ قبلی محاسبه می‌شوند — بدونِ ورودیِ تازه:</p>
+      <div class="eqblock">a(t+1) = satlins(W·a(t) + b)</div>
+
+      <div class="box example">
+        <span class="box-label">مثال گام‌به‌گام: یک شبکه‌ی بازگشتیِ دونورونی</span>
+        فرض کن <code class="inline ltr">W = [0, 1; −1, 0]</code>، بایاس صفر، تابعِ انتقال <code class="inline ltr">satlins</code>، و شرطِ اولیه <code class="inline ltr">a(0) = p = [1, 0]ᵀ</code>. تکرار می‌کنیم:
+        <div class="eqblock">a(1) = satlins(Wa(0)) = satlins([0,−1]ᵀ) = [0,−1]ᵀ</div>
+        <div class="eqblock">a(2) = satlins(Wa(1)) = satlins([−1,0]ᵀ) = [−1,0]ᵀ</div>
+        هر بار خروجیِ قبلی، ورودیِ محاسبه‌ی بعدی می‌شود — نه یک ورودیِ بیرونیِ تازه. این «حافظه»یی است که شبکه‌های پیش‌خور (feedforward) اصلاً ندارند: خروجیِ فعلیِ یک شبکه‌ی بازگشتی، به تاریخچه‌ی کاملِ حالت‌های قبلی وابسته است، نه فقط به ورودیِ همین لحظه.
+      </div>
+
+      <div class="box note">
+        <span class="box-label">چطور معماریِ درست را انتخاب کنیم؟</span>
+        <p style="margin-top:0;">تعدادِ زیادِ انتخاب‌ها (چند لایه؟ چند نورون؟ کدام تابعِ انتقال؟) نگران‌کننده به‌نظر می‌رسد، ولی بخشِ زیادی از آن‌ها را خودِ مسئله تعیین می‌کند:</p>
+        <ol class="tight" style="margin-bottom:0;">
+          <li><b>تعدادِ ورودی‌های شبکه</b> = تعدادِ متغیرهای ورودیِ مسئله (نه انتخابی).</li>
+          <li><b>تعدادِ نورون‌های لایه‌ی خروجی</b> = تعدادِ خروجی‌های مسئله (نه انتخابی).</li>
+          <li><b>تابعِ انتقالِ لایه‌ی خروجی</b> را مشخصاتِ خروجیِ مطلوب تعیین می‌کند — مثلاً اگر خروجی باید دقیقاً ۱− یا ۱ باشد، <code class="inline ltr">hardlims</code> مناسب است؛ اگر باید پیوسته بینِ ۰ و ۱ باشد، <code class="inline ltr">logsig</code>.</li>
+        </ol>
+        <p style="margin-bottom:0;margin-top:.6rem;">آنچه مسئله مستقیماً تعیین نمی‌کند، تعدادِ <b>لایه‌های پنهان</b> و تعدادِ نورون‌های داخلِ آن‌هاست — این هنوز هم یک حوزه‌ی پژوهشیِ فعال است (فصل ۱۱ و ۱۳ به آن می‌پردازند). در عمل، اغلب شبکه‌ها دو یا سه لایه دارند؛ بیش از چهار لایه به‌ندرت استفاده می‌شود.</p>
+      </div>
+
+      <h3>مسئله‌های حل‌شده‌ی کتاب <span class="en">Solved Problems P2.1–P2.4</span></h3>
+      <div class="box example">
+        <span class="box-label">P2.1 و P2.2 — یک نورونِ تک‌ورودی</span>
+        <p style="margin-top:0;">ورودیِ یک نورونِ تک‌ورودی برابر ۲٫۰، وزن ۲٫۳ و بایاس ۳− است.</p>
+        <div class="eqblock">n = wp + b = (2.3)(2) + (−3) = 1.6</div>
+        <p>خروجی به تابعِ انتقال بستگی دارد — با سه تابعِ رایج:</p>
+        <ul class="tight" style="margin-bottom:0;">
+          <li>Hard limit: <code class="inline ltr">a = hardlim(1.6) = 1.0</code></li>
+          <li>Linear: <code class="inline ltr">a = purelin(1.6) = 1.6</code></li>
+          <li>Log-sigmoid: <code class="inline ltr">a = logsig(1.6) = 1/(1+e⁻¹·⁶) = 0.8320</code></li>
+        </ul>
+      </div>
+      <div class="box example">
+        <span class="box-label">P2.3 — یک نورونِ دوورودی</span>
+        <p style="margin-top:0;">با <code class="inline ltr">b = 1.2</code>، <code class="inline ltr">W = [3, 2]</code> و <code class="inline ltr">p = [−5, 6]ᵀ</code>:</p>
+        <div class="eqblock">n = Wp + b = (3)(−5) + (2)(6) + 1.2 = −1.8</div>
+        <ul class="tight" style="margin-bottom:0;">
+          <li>Symmetric hard limit: <code class="inline ltr">a = hardlims(−1.8) = −1</code></li>
+          <li>Saturating linear: <code class="inline ltr">a = satlin(−1.8) = 0</code></li>
+          <li>Tan-sigmoid: <code class="inline ltr">a = tansig(−1.8) = −0.9468</code></li>
+        </ul>
+      </div>
+      <div class="box example">
+        <span class="box-label">P2.4 — طراحیِ معماری از رویِ مشخصات</span>
+        <p style="margin-top:0;">یک شبکه‌ی تک‌لایه باید ۶ ورودی و ۲ خروجیِ پیوسته در بازه‌ی [۰،۱] داشته باشد. چه می‌توان گفت؟</p>
+        <ul class="tight" style="margin-bottom:0;">
+          <li>دو نورون لازم است (یکی برای هر خروجی).</li>
+          <li>ماتریسِ وزن <code class="inline ltr">۲×۶</code> است (۲ سطر برای ۲ نورون، ۶ ستون برای ۶ ورودی).</li>
+          <li>مناسب‌ترین تابعِ انتقال، <code class="inline ltr">logsig</code> است (خروجیِ پیوسته در [۰،۱]).</li>
+          <li>از رویِ این اطلاعات به‌تنهایی نمی‌شود گفت بایاس لازم است یا نه.</li>
+        </ul>
+      </div>
+      <p style="color:var(--ink-faint); font-size:.85rem;">فهرستِ کاملِ نمادگذاریِ کتاب (شاملِ نمادهای فصل‌های بعدی) در <a href="/chapters/appendix-b">پیوستِ ب</a> آمده — اگر جایی نماد را فراموش کردی، همیشه می‌توانی به آنجا مراجعه کنی.</p>
+
       <div class="ex-block">
         <div class="ex-heading">تمرین</div>
         <details class="ex"><summary>یک نورون دو ورودی داریم با w = [2, −1]، b = 3. اگر p = [1, 4]ᵀ باشد و تابع انتقال hard-limit باشد، خروجی چیست؟</summary>
