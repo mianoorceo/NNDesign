@@ -312,7 +312,7 @@ export const chapters: Chapter[] = [
           <li>از رویِ این اطلاعات به‌تنهایی نمی‌شود گفت بایاس لازم است یا نه.</li>
         </ul>
       </div>
-      <p style="color:var(--ink-faint); font-size:.85rem;">فهرستِ کاملِ نمادگذاریِ کتاب (شاملِ نمادهای فصل‌های بعدی) در <a href="/chapters/appendix-b">پیوستِ ب</a> آمده — اگر جایی نماد را فراموش کردی، همیشه می‌توانی به آنجا مراجعه کنی.</p>
+      <p style="color:var(--ink-faint); font-size:.85rem;">فهرستِ کاملِ نمادگذاریِ کتاب (شاملِ نمادهای فصل‌های بعدی) در <a href="/chapters/app-b">پیوستِ ب</a> آمده — اگر جایی نماد را فراموش کردی، همیشه می‌توانی به آنجا مراجعه کنی.</p>
 
       <div class="ex-block">
         <div class="ex-heading">تمرین</div>
@@ -2101,6 +2101,46 @@ export const chapters: Chapter[] = [
       <p>پارامترهای مداری: <code class="inline ltr">T<sub>ij</sub>, C, R<sub>i</sub>, I<sub>i</sub></code>؛ <code class="inline ltr">ε</code> — ثابتِ زمانی؛ <code class="inline ltr">λ</code> — بهره‌ی تقویت‌کننده.</p>
 
       <p style="color:var(--ink-faint);font-size:.85rem;margin-top:1rem;">این فرهنگِ نمادها دقیقاً از پیوستِ بِ کتابِ اصلی بازتولید شده؛ اگر نمادی را در یک فصل فراموش کردی، همیشه می‌توانی به همین‌جا برگردی.</p>`,
+  },
+  {
+    slug: "app-c",
+    num: `پ.ج`,
+    tag: `Appendix C · Software · ۱۴ صفحه`,
+    title: `پیوست ج — نرم‌افزار و نسخه‌های نمایشی`,
+    bodyHtml: `<p class="lead-p">کتاب اصلی، در کنارِ متن، مجموعه‌ای از نسخه‌های نمایشیِ تعاملیِ متلب (Neural Network Design Demonstrations) ارائه می‌کند — برنامه‌های کوچکی که هر مفهوم را با نمودارهای زنده و قابل‌تنظیم نشان می‌دهند. نکته‌ی مهمِ خودِ کتاب: <b>متلب برایِ فهمِ محتوا ضروری نیست</b> — تمرین‌های محاسباتی را می‌شود با هر زبانِ برنامه‌نویسیِ دیگری هم انجام داد، و این نسخه‌های نمایشی فقط کمکی‌اند، نه پیش‌نیاز. با این‌همه، فهرستِ آن‌ها راهنمایِ خوبی است برایِ اینکه هر فصل دقیقاً حولِ چه شهودهایی ساخته شده.</p>
+
+      <h3>فهرستِ نسخه‌های نمایشی، به‌تفکیکِ فصل</h3>
+      <div class="scrollx">
+        <table class="simple" style="font-size:.85rem;">
+          <tr><th>فصل</th><th>نسخه‌های نمایشی (نامِ دستور در متلب — موضوع)</th></tr>
+          <tr><td>۲</td><td style="text-align:right;">nnd2n1 — نورونِ تک‌ورودی؛ nnd2n2 — نورونِ دوورودی</td></tr>
+          <tr><td>۳</td><td style="text-align:right;">nnd3pc — دسته‌بندیِ پرسپترون؛ nnd3hamc — دسته‌بندیِ همینگ؛ nnd3hopc — دسته‌بندیِ هاپفیلد</td></tr>
+          <tr><td>۴</td><td style="text-align:right;">nnd4db — مرزهای تصمیم؛ nnd4pr — قاعده‌ی پرسپترون</td></tr>
+          <tr><td>۵</td><td style="text-align:right;">nnd5gs — گرام-اشمیت؛ nnd5rb — پایه‌ی متقابل</td></tr>
+          <tr><td>۶</td><td style="text-align:right;">nnd6lt — تبدیل‌های خطی؛ nnd6eg — بازیِ بردارِ ویژه</td></tr>
+          <tr><td>۷</td><td style="text-align:right;">nnd7sh — یادگیریِ هبیِ نظارت‌شده</td></tr>
+          <tr><td>۸</td><td style="text-align:right;">nnd8ts1، nnd8ts2 — بسطِ تیلور؛ nnd8dd — مشتقاتِ جهتی؛ nnd8qf — تابعِ درجه‌دوم</td></tr>
+          <tr><td>۹</td><td style="text-align:right;">nnd9sdq — گرادیانِ کاهشی روی تابعِ درجه‌دوم؛ nnd9mc — مقایسه‌ی روش‌ها؛ nnd9nm — روشِ نیوتن؛ nnd9sd — گرادیانِ کاهشی</td></tr>
+          <tr><td>۱۰</td><td style="text-align:right;">nnd10nc — حذفِ نویزِ تطبیقی؛ nnd10eeg — حذفِ نویزِ EEG؛ nnd10lc — دسته‌بندیِ خطی</td></tr>
+          <tr><td>۱۱</td><td style="text-align:right;">nnd11nf — تابعِ شبکه؛ nnd11bc — محاسبه‌ی بک‌پروپاگیشن؛ nnd11fa — تقریبِ تابع؛ nnd11gn — تعمیم‌پذیری</td></tr>
+          <tr><td>۱۲</td><td style="text-align:right;">nnd12sd1/2 — بک‌پروپاگیشنِ گرادیانِ کاهشی؛ nnd12mo — ممنتوم؛ nnd12vl — نرخِ یادگیریِ متغیر؛ nnd12ls/cg — گرادیانِ مزدوج؛ nnd12ms/m — مارکوارت</td></tr>
+          <tr><td>۱۳</td><td style="text-align:right;">nnd13es — توقفِ زودهنگام؛ nnd13reg — منظم‌سازی؛ nnd13breg — منظم‌سازیِ بیزی؛ nnd13esr — توقفِ زودهنگام/منظم‌سازی</td></tr>
+          <tr><td>۱۴</td><td style="text-align:right;">nnd14fir/iir — پاسخِ ضربه‌ی محدود/نامحدود؛ nnd14dynd — مشتقاتِ پویا؛ nnd14rnt — آموزشِ شبکه‌ی بازگشتی</td></tr>
+          <tr><td>۱۵</td><td style="text-align:right;">nnd15uh — هبِ بی‌نظارت؛ nnd15edr — اثرِ نرخِ افت؛ nnd15hd — هب با افت؛ nnd15gis/is — اینستار؛ nnd15os — اوت‌استار</td></tr>
+          <tr><td>۱۶</td><td style="text-align:right;">nnd16cc/cl — دسته‌بندی/یادگیریِ رقابتی؛ nnd16fm1/2 — نقشه‌ی ویژگیِ یک/دوبعدی؛ nnd16lv1/2 — LVQ1/LVQ2</td></tr>
+          <tr><td>۱۷</td><td style="text-align:right;">nnd17nf — تابعِ شبکه؛ nnd17pc — دسته‌بندیِ الگو؛ nnd17lls/ols — حداقلِ مربعاتِ خطی/متعامد؛ nnd17no — بهینه‌سازیِ غیرخطی</td></tr>
+          <tr><td>۱۸</td><td style="text-align:right;">nnd18li — انتگرال‌گیرِ نشتی؛ nnd18sn — شبکه‌ی شانتینگ؛ nnd18gl1/2 — لایه‌ی ۱/۲ گراسبرگ؛ nnd18aw — وزن‌های تطبیقی</td></tr>
+          <tr><td>۱۹</td><td style="text-align:right;">nnd19al1/2 — لایه‌ی ۱/۲ ART1؛ nnd19os — زیرسیستمِ جهت‌یابی؛ nnd19a1 — الگوریتمِ ART1</td></tr>
+          <tr><td>۲۰</td><td style="text-align:right;">nnd20ds — سیستمِ دینامیکی</td></tr>
+          <tr><td>۲۱</td><td style="text-align:right;">nnd21hn — شبکه‌ی هاپفیلد</td></tr>
+        </table>
+      </div>
+      <p style="color:var(--ink-faint);font-size:.85rem;">این نسخه‌های نمایشی از <code class="inline ltr">hagan.okstate.edu/nnd.html</code> قابلِ‌دانلودند و با تایپِ <code class="inline ltr">nnd</code> در خطِ فرمانِ متلب، یک منویِ گرافیکی برایِ دسترسی به همه‌شان باز می‌شود. دستورِ <code class="inline ltr">nnsound off</code> صداهای نسخه‌های نمایشی را خاموش می‌کند (و اجرا را هم سریع‌تر می‌کند).</p>
+
+      <div class="box note">
+        <span class="box-label">دیتاست‌های مطالعه‌های موردی</span>
+        فصل‌های ۲۳ تا ۲۷ هرکدام دو فایلِ داده (ورودی/هدف) دارند که همراهِ نرم‌افزارِ نمایشی توزیع می‌شوند: سنسورِ موقعیت (فصلِ ۲۳)، فرآیندِ CVD الماس (فصلِ ۲۴)، نوارِ قلب (فصلِ ۲۵)، پوششِ جنگلی (فصلِ ۲۶)، و سیستمِ لویتاسیونِ مغناطیسی (فصلِ ۲۷) — همان داده‌های واقعی‌ای که در متنِ خودِ آن فصل‌ها با جزئیاتِ کامل تحلیل شدند.
+      </div>`,
   },
 ];
 
