@@ -803,6 +803,15 @@ export const chapters: Chapter[] = [
       <div class="eqblock">۰ &lt; α &lt; <span class="frac"><span class="num">2</span><span class="den">λ<sub>max</sub>(R)</span></span></div>
       <p>که <code class="inline ltr">λmax(R)</code> بزرگ‌ترین مقدار ویژه‌ی ماتریس همبستگی ورودی است. در عمل چون <code class="inline ltr">R</code> را دقیق نمی‌دانیم، از تخمین یا کران‌های محافظه‌کارانه (مثل ردِ ماتریس) استفاده می‌شود.</p>
 
+      <div class="box example">
+        <span class="box-label">مثال گام‌به‌گام (عین مثال کتاب) — LMS روی سیب/پرتقالِ فصل ۳</span>
+        <p style="margin-top:0;">با همان <span class="eq">p₁=[1,−1,−1]ᵀ→t₁=−1</span> و <span class="eq">p₂=[1,1,−1]ᵀ→t₂=1</span> فصلِ ۳ (بدونِ بایاس)، اول ماتریسِ همبستگیِ ورودی و مقادیرِ ویژه‌اش را حساب می‌کنیم تا نرخِ یادگیریِ پایدار را بدانیم:</p>
+        <div class="eqblock">R = ½p₁p₁<sup>T</sup> + ½p₂p₂<sup>T</sup> = <span class="matrix" style="grid-template-columns:repeat(3,auto);"><span>1</span><span>0</span><span>−1</span><span>0</span><span>1</span><span>0</span><span>−1</span><span>0</span><span>1</span></span> &nbsp;⟹&nbsp; λ = {1.0, 0.0, 2.0}</div>
+        <p>پس حداکثرِ نرخِ پایدار <span class="eq">2/λ<sub>max</sub>=2/2=1.0</span> است؛ برای احتیاط، <span class="eq">α=0.2</span> را انتخاب می‌کنیم. با شروع از <span class="eq">W(0)=[0,0,0]</span> و دیدنِ <span class="eq">p₁</span>:</p>
+        <div class="eqblock">a(0)=0 &nbsp;⟹&nbsp; e(0)=−1−0=−1 &nbsp;⟹&nbsp; W(1)=[0,0,0]+2(0.2)(−1)p₁<sup>T</sup>=[−0.4, 0.4, 0.4]</div>
+        <p style="margin-bottom:0;">حالا <span class="eq">p₂</span> را می‌بینیم: <span class="eq">a(1)=W(1)·p₂=−0.4</span>، پس <span class="eq">e(1)=1−(−0.4)=1.4</span>، و <span class="eq">W(2)=[−0.4,0.4,0.4]+2(0.2)(1.4)p₂ᵀ=[0.16, 0.96, −0.16]</span>. با تکرارِ همین چرخه (دیدنِ <span class="eq">p₁,p₂,p₁,p₂,…</span> پی‌درپی)، وزن‌ها رفته‌رفته به سمتِ <span class="eq">[0,1,0]</span> همگرا می‌شوند — همان جوابِ دقیقی که در فصلِ ۷ با شبه‌وارون یک‌باره به‌دست آوردیم، این‌بار قدم‌به‌قدم و بدونِ دیدنِ کلِ داده یک‌جا.</p>
+      </div>
+
       <h3>فیلترسازی وفقی و کاربردها</h3>
       <p>فصل با دو کاربرد کلاسیک تمام می‌شود: <b>حذف نویز وفقی</b> (یک سیگنال مرجع نویز را مدل و از سیگنال اصلی کم می‌کند) و <b>حذف پژواک</b> (echo cancellation) در خطوط تلفن — هر دو، همان یک قاعده‌ی به‌روزرسانی وزن را روی جریان داده‌ی زمانی اعمال می‌کنند.</p>
 
