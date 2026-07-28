@@ -30,7 +30,7 @@ export default function Home() {
           <span className="text-[.8rem] text-ink-soft">صفحه‌ی کتاب اصلی</span>
         </div>
         <div className="bg-bg-elev py-4 px-[1.1rem]">
-          <b className="block text-[1.3rem] tabular-nums">۴۹</b>
+          <b className="block text-[1.3rem] tabular-nums">۵۹</b>
           <span className="text-[.8rem] text-ink-soft">تمرین با پاسخ کامل</span>
         </div>
       </div>
