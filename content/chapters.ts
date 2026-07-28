@@ -77,21 +77,10 @@ export const chapters: Chapter[] = [
       <div class="box example">
         <span class="box-label">آناتومیِ یک نورونِ زیستی (شکل ۱.۱ کتاب)</span>
         <p style="margin-top:0;">برای اینکه بدانی نورونِ مصنوعیِ فصلِ بعد از کجا الهام گرفته، سه بخشِ اصلیِ یک نورونِ واقعی را بشناس: <b>دندریت‌ها (dendrites)</b> — شبکه‌ای درخت‌مانند از الیاف عصبی که سیگنال‌های الکتریکیِ ورودی را به بدنه‌ی سلول می‌رسانند؛ <b>بدنه‌ی سلولی (cell body)</b> — جایی که این سیگنال‌ها با هم جمع و آستانه‌گیری می‌شوند؛ و <b>آکسون (axon)</b> — یک رشته‌ی بلندِ تکی که سیگنالِ خروجیِ بدنه‌ی سلول را به نورون‌های دیگر می‌برد. نقطه‌ی تماسِ آکسونِ یک سلول با دندریتِ سلولِ بعدی را <b>سیناپس (synapse)</b> می‌گویند — و این دقیقاً همان نقطه‌ای است که «وزن»هایی که در فصل بعد می‌بینی از آن نام گرفته‌اند: قدرتِ هر سیناپس، معادلِ همان عددِ وزن است.</p>
-        <svg viewBox="0 0 400 190" style="width:100%;max-width:420px;height:auto;margin:.6rem auto;display:block;" role="img" aria-label="نمودار ساده‌شده‌ی دو نورونِ زیستی: دندریت‌ها، بدنه‌ی سلولی، آکسون و سیناپس">
-          <g fill="none" stroke="currentColor" stroke-width="1.4">
-            <circle cx="80" cy="55" r="22"/>
-            <path d="M62 40 Q40 25 30 30 M62 45 Q35 40 22 48 M64 65 Q45 80 32 78 M70 74 Q55 90 48 95"/>
-            <path d="M102 55 H230"/>
-            <circle cx="235" cy="55" r="4" fill="currentColor"/>
-            <circle cx="150" cy="140" r="22"/>
-            <path d="M132 125 Q110 110 100 115 M132 130 Q105 125 92 133 M134 150 Q115 165 102 163 M140 159 Q125 175 118 180"/>
-          </g>
-          <line x1="235" y1="59" x2="132" y2="128" stroke="currentColor" stroke-width="1.4"/>
-          <text x="60" y="18" font-size="11" fill="currentColor">دندریت‌ها</text>
-          <text x="150" y="30" font-size="11" fill="currentColor">آکسون</text>
-          <text x="245" y="70" font-size="11" fill="currentColor">سیناپس</text>
-          <text x="70" y="100" font-size="11" fill="currentColor">بدنه‌ی سلولی</text>
-        </svg>
+        <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:#fff;margin:1rem 0 0;">
+          <img src="/figures/fig1-1-biological-neurons.png" alt="شکل ۱.۱ کتاب: نقاشیِ شماتیکِ دو نورونِ زیستی، شاملِ دندریت‌ها، بدنه‌ی سلولی، آکسون و سیناپس" style="width:100%;max-width:420px;height:auto;margin:0 auto;display:block;" />
+          <p style="font-size:.8rem;color:var(--ink-faint);margin:.7rem 0 0;">شکل ۱.۱ کتاب — نقاشیِ شماتیکِ دو نورونِ زیستی.</p>
+        </div>
       </div>
 
       <p>نورونِ مصنوعیِ این کتاب، الهام‌گرفته از این ساختار است اما یک <b>انتزاعِ بسیار ساده‌شده</b> از آن است — نه یک شبیه‌سازیِ دقیقِ زیستی. یک نورونِ مصنوعی فقط یک جمعِ وزن‌دار از ورودی‌ها به‌علاوه‌ی یک تابعِ غیرخطی است (فصل ۲ دقیقاً همین را با فرمول نشان می‌دهد). با این حال دو شباهتِ کلیدی واقعاً وجود دارد: اول، واحدهای سازنده‌ی هر دو شبکه (بیولوژیک و مصنوعی) ساده‌اند اما به‌شدت به‌هم‌متصل؛ دوم، در هر دو، این <b>اتصال‌ها</b>یند که عملکردِ کلیِ شبکه را تعیین می‌کنند — و هدفِ اصلیِ این کتاب هم دقیقاً همین است: پیداکردنِ اتصال‌های (وزن‌های) درست برای یک مسئله‌ی مشخص. نکته‌ی جالبِ دیگر: با اینکه یک نورونِ بیولوژیک خیلی کندتر از یک مدارِ الکترونیکی است (در حدِ ۱۰⁻³ ثانیه در برابرِ ۱۰⁻¹⁰ ثانیه)، مغز در بسیاری از کارها از هر کامپیوترِ معمولی سریع‌تر عمل می‌کند — چون همه‌ی نورون‌ها <b>هم‌زمان و موازی</b> کار می‌کنند، نه یکی‌یکی. شبکه‌های مصنوعی هم همین ساختارِ موازی را به ارث برده‌اند، هرچند معمولاً روی سخت‌افزارِ معمولی (که ذاتاً ترتیبی است) پیاده‌سازی می‌شوند.</p>
@@ -176,57 +165,17 @@ export const chapters: Chapter[] = [
       </div>
       <p style="color:var(--ink-faint);font-size:.85rem;">نکته: <code class="inline ltr">tansig</code> را می‌شود «نسخه‌ی کشیده‌شده و جابه‌جاشده‌ی» <code class="inline ltr">logsig</code> دانست (همان شکلِ S، فقط بینِ ۱− و ۱ به‌جای ۰ و ۱)؛ <code class="inline ltr">satlin</code> و <code class="inline ltr">poslin</code> هم می‌شود «نسخه‌ی بریده‌شده‌ی» <code class="inline ltr">purelin</code> دانست. تابعِ Competitive با بقیه فرق اساسی دارد: مالِ یک نورونِ تنها نیست، بلکه رفتارِ کل یک <b>لایه</b> را با هم تعیین می‌کند — دقیقاً به همین دلیل بین «نورون به نورون» با آن رفتار نمی‌شود.</p>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem;margin:1.3rem 0;">
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Hard Limit</div>
-          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار پله‌ای تابع Hard Limit: صفر برای n منفی، یک برای n مثبت">
-            <line x1="10" y1="91" x2="150" y2="91" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <text x="146" y="103" font-size="10" fill="var(--ink-faint)">n</text>
-            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
-            <path d="M10,91 L80,91" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
-            <path d="M80,29 L150,29" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
-            <circle cx="80" cy="91" r="3.5" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:2" />
-            <circle cx="80" cy="29" r="3.5" style="fill:var(--accent)" />
-          </svg>
-          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1 if n≥0, else 0</div>
-        </div>
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Symmetric Hard Limit</div>
-          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار پله‌ای تابع Symmetric Hard Limit: منفی‌یک برای n منفی، یک برای n مثبت">
-            <line x1="10" y1="60" x2="150" y2="60" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <text x="146" y="72" font-size="10" fill="var(--ink-faint)">n</text>
-            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
-            <path d="M10,98 L80,98" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
-            <path d="M80,22 L150,22" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
-            <circle cx="80" cy="98" r="3.5" style="fill:var(--bg-elev);stroke:var(--accent);stroke-width:2" />
-            <circle cx="80" cy="22" r="3.5" style="fill:var(--accent)" />
-          </svg>
-          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1 if n≥0, else −1</div>
-        </div>
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Linear</div>
-          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار خط راست تابع Linear: a برابر n">
-            <line x1="10" y1="60" x2="150" y2="60" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <text x="146" y="72" font-size="10" fill="var(--ink-faint)">n</text>
-            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
-            <path d="M10,110 L150,10" style="stroke:var(--accent);stroke-width:2.5;fill:none" />
-          </svg>
-          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a = n</div>
-        </div>
-        <div style="border:1px solid var(--rule);border-radius:10px;padding:.9rem;text-align:center;background:var(--bg-elev);">
-          <div style="font-size:.78rem;color:var(--ink-soft);margin-bottom:.4rem;">Log-Sigmoid</div>
-          <svg viewBox="0 0 160 120" style="width:100%;height:auto;" role="img" aria-label="نمودار S-شکل تابع Log-Sigmoid: بین صفر و یک">
-            <line x1="10" y1="98" x2="150" y2="98" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <line x1="80" y1="10" x2="80" y2="110" style="stroke:var(--rule-strong);stroke-width:1.5" />
-            <text x="146" y="110" font-size="10" fill="var(--ink-faint)">n</text>
-            <text x="84" y="19" font-size="10" fill="var(--ink-faint)">a</text>
-            <polyline points="10.0,98.3 18.8,98.1 27.5,97.6 36.2,96.7 45.0,94.8 53.8,91.1 62.5,84.4 71.2,73.8 80.0,60.0 88.8,46.2 97.5,35.6 106.2,28.9 115.0,25.2 123.8,23.3 132.5,22.4 141.2,21.9 150.0,21.7" style="stroke:var(--accent);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round" />
-          </svg>
-          <div class="eq" style="font-size:.8rem;margin-top:.3rem;display:block;">a=1/(1+e⁻ⁿ)</div>
-        </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig2-2-hardlimit.png" alt="شکل ۲.۲ کتاب: تابع انتقال Hard Limit — نمودار پله‌ای a=hardlim(n) و منحنی ورودی/خروجی نورونِ تک‌ورودیِ hardlim" style="width:100%;max-width:480px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.7rem 0 0;">شکل ۲.۲ کتاب — تابع انتقال Hard Limit.</p>
+      </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig2-3-linear.png" alt="شکل ۲.۳ کتاب: تابع انتقال Linear — نمودار خطی a=purelin(n) و منحنی ورودی/خروجی نورونِ تک‌ورودیِ purelin" style="width:100%;max-width:480px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.7rem 0 0;">شکل ۲.۳ کتاب — تابع انتقال Linear.</p>
+      </div>
+      <div style="text-align:center;border:1px solid var(--rule);border-radius:10px;padding:1rem;background:#fff;margin:1.2rem 0;">
+        <img src="/figures/fig2-4-logsigmoid.png" alt="شکل ۲.۴ کتاب: تابع انتقال Log-Sigmoid — منحنی S-شکل a=logsig(n) و منحنی ورودی/خروجی نورونِ تک‌ورودیِ logsig" style="width:100%;max-width:480px;height:auto;margin:0 auto;display:block;" />
+        <p style="font-size:.8rem;color:var(--ink-faint);margin:.7rem 0 0;">شکل ۲.۴ کتاب — تابع انتقال Log-Sigmoid. (نمودارِ Symmetric Hard Limit در کتاب فقط به‌شکلِ آیکونِ فشرده در جدولِ ۲.۱ آمده، نه یک شکلِ کامل جدا — رفتارش را در جدولِ بالا می‌بینی: دقیقاً مثلِ Hard Limit ولی بینِ ۱− و ۱.)</p>
       </div>
       <p style="color:var(--ink-faint);font-size:.85rem;margin-top:-.5rem;">محور افقی هر نمودار <span class="eq">n</span> (ورودی خالص) و محور عمودی <span class="eq">a</span> (خروجی) است؛ دایره‌ی توخالی یعنی آن نقطه در نمودار نیست (تابع در آنجا از سمت دیگر می‌پرد).</p>
 
