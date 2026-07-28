@@ -18,7 +18,7 @@ export default function MarkDone({ slug }: { slug: string }) {
         onChange={() => toggle(slug)}
         className="accent-thesis"
       />
-      این فصل رو خوندم
+      این فصل را خوانده‌ام
     </label>
   );
 }
